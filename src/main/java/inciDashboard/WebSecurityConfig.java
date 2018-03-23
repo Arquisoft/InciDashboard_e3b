@@ -13,7 +13,8 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 @Configuration
 @EnableWebSecurity
-public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
+public class WebSecurityConfig extends WebSecurityConfigurerAdapter { 
+	
 	@Autowired
 	private UserDetailsService userDetailsService;
 
@@ -26,12 +27,11 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		http.csrf().disable().authorizeRequests()
-				.antMatchers("/css/**", "/img/**", "/script/**", "/").permitAll()
+				.antMatchers("/css/**", "/img/**", "/script/**", "/","/logout").permitAll()
 				.and().formLogin()
 				.loginPage("/login")
 				.permitAll()
-				.defaultSuccessUrl("/home");
-							
+				.defaultSuccessUrl("/home");					
 	}
 
 	@Autowired
