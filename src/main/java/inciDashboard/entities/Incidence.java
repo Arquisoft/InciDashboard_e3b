@@ -36,7 +36,10 @@ public class Incidence {
     private HashMap<String, String> campos;     // campos con propiedad valor
     private Estado status;                      // Ver Enum: "Estado". Ej: ABIERTA, EN_PROCESO, CERRADA, ANULADA
     private Date expiration;                    // fecha de caducidad, ej: en caso de los sensores de temperatura
-
+    
+    @ManyToOne
+    private Operario operario; 					//Operario encargado de la incidencia
+    
     public Incidence() {
     }
 

@@ -25,14 +25,14 @@ public class Operario {
 	
 	private String role;
 	
-	@OneToMany(mappedBy = "operador")
-	private Set<Parte> partes = new HashSet<>();
+	@OneToMany
+	private Set<Incidence> incidencias = new HashSet<>();
 	
 	
 	@Override
 	public String toString() {
 		return "Operador [id=" + id + ", email=" + email + ", password=" + password + ", role=" + role + ", partes="
-				+ partes + "]";
+				+ incidencias + "]";
 	}
 
 	@Override
@@ -41,7 +41,7 @@ public class Operario {
 		int result = 1;
 		result = prime * result + ((email == null) ? 0 : email.hashCode());
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
-		result = prime * result + ((partes == null) ? 0 : partes.hashCode());
+		result = prime * result + ((incidencias == null) ? 0 : incidencias.hashCode());
 		result = prime * result + ((password == null) ? 0 : password.hashCode());
 		result = prime * result + ((role == null) ? 0 : role.hashCode());
 		return result;
@@ -66,10 +66,10 @@ public class Operario {
 				return false;
 		} else if (!id.equals(other.id))
 			return false;
-		if (partes == null) {
-			if (other.partes != null)
+		if (incidencias == null) {
+			if (other.incidencias != null)
 				return false;
-		} else if (!partes.equals(other.partes))
+		} else if (!incidencias.equals(other.incidencias))
 			return false;
 		if (password == null) {
 			if (other.password != null)

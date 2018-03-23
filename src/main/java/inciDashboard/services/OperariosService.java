@@ -21,4 +21,8 @@ public class OperariosService {
 		operatorsRepository.save(operador);
 	}
 	
+	public Operario getOperarioByEmail(String email) {
+		return operatorsRepository.findByEmail(email);		
+	}
+	
 }

@@ -6,5 +6,5 @@ import inciDashboard.entities.Operario;
 
 public interface OperariosRepository extends CrudRepository<Operario,Long> {
 	
-	Operario findByEmail(String username);
+	Operario findByEmail(String email);
 }
