@@ -6,9 +6,7 @@ import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 
 @Entity
@@ -28,6 +26,18 @@ public class Operario {
 	@OneToMany
 	private Set<Incidence> incidencias = new HashSet<>();
 	
+	Operario() {
+	}
+	
+	
+	
+	
+	public Operario(String email, String password, String role) {
+		super();
+		this.email = email;
+		this.password = password;
+		this.role = role;
+	}
 	
 	@Override
 	public String toString() {
@@ -84,8 +94,7 @@ public class Operario {
 		return true;
 	}
 
-	public Operario() {
-	}
+	
 
 	public Long getId() {
 		return id;
@@ -118,6 +127,17 @@ public class Operario {
 	public void setRole(String role) {
 		this.role = role;
 	}
+	
+	public void añadirIncidencia(Incidence incidencia) {
+		this.incidencias.add(incidencia);
+	}
+
+
+	public Set<Incidence> getIncidencias() {
+		return incidencias;
+	}
+	
+	
 	
 	
 }

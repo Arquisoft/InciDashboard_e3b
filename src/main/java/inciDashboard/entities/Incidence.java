@@ -40,7 +40,7 @@ public class Incidence {
     @ManyToOne
     private Operario operario; 					//Operario encargado de la incidencia
     
-    public Incidence() {
+    Incidence() {
     }
 
     /**
@@ -74,6 +74,13 @@ public class Incidence {
         this.location = location;
         this.labels = labels;
         this.status = Estado.ABIERTA;
+    }
+    
+    public Incidence(String incidenceName,Agent agent,String location,Estado status) {
+    	this.agent = agent;
+        this.incidenceName = incidenceName;
+        this.status = status;
+        this.location = location;
     }
 
     public Long getId() {

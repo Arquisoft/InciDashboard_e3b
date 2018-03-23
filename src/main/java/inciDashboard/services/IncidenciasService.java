@@ -20,7 +20,7 @@ public class IncidenciasService {
 	}
 
 	public Incidence findById(Long id) {
-		return incidenciasR.findOne(id);
+		return incidencesRepository.findOne(id);
 	}
 
 }
