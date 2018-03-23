@@ -26,7 +26,6 @@ public class Operador {
 	private String role;
 	
 	@OneToMany(mappedBy = "operador")
-	@JoinColumn(name = "operator_id")
 	private Set<Parte> partes = new HashSet<>();
 	
 	

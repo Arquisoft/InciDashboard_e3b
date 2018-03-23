@@ -4,6 +4,7 @@ import org.springframework.data.repository.CrudRepository;
 
 import inciDashboard.entities.Operador;
 
-public interface OperatorsRepository extends CrudRepository<Operador,Long> {
-
+public interface OperadoresRepository extends CrudRepository<Operador,Long> {
+	
+	Operador findByEmail(String username);
 }

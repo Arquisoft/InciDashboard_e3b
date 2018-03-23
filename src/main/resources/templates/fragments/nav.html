@@ -15,6 +15,18 @@
 			
 			</ul>
 			
-		</div>
-	</div>
+			
+			<ul class="nav navbar-nav navbar-right">
+				<li sec:authorize="!isAuthenticated()"><a href="/login"> 
+				 Login
+				</a></li>
+				<li sec:authorize="isAuthenticated()"><a href="/logout"
+					> Logout
+				</a></li>
+				
+				
+			</ul>
+			
+			
+		</div>	</div>
 </nav>
