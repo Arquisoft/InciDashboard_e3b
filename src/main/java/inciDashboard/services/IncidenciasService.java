@@ -12,12 +12,11 @@ import inciDashboard.repositories.IncidencesRepository;
 @Service
 public class IncidenciasService {
 	
-	
-	@Autowired	
-	private IncidencesRepository incidenciasR;
+	@Autowired
+	IncidencesRepository incidencesRepository;
 	
 	public List<Incidence> getIncidenciasForOperario(Operario operario) {
-		return incidenciasR.getIncidenciasForOperario(operario);
+		return incidencesRepository.getIncidenciasForOperario(operario);
 	}
 
 	public Incidence findById(Long id) {
