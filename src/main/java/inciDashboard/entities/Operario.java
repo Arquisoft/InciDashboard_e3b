@@ -12,7 +12,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 
 @Entity
-public class Operador {
+public class Operario {
 
 	@Id
 	@GeneratedValue
@@ -55,7 +55,7 @@ public class Operador {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Operador other = (Operador) obj;
+		Operario other = (Operario) obj;
 		if (email == null) {
 			if (other.email != null)
 				return false;
@@ -84,7 +84,7 @@ public class Operador {
 		return true;
 	}
 
-	public Operador() {
+	public Operario() {
 	}
 
 	public Long getId() {

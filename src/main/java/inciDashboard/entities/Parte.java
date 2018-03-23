@@ -13,7 +13,7 @@ public class Parte {
 	private Long id;
 	
 	@ManyToOne
-	private Operador operador;
+	private Operario operador;
 	
 	@Override
 	public String toString() {
@@ -65,11 +65,11 @@ public class Parte {
 		this.id = id;
 	}
 
-	public Operador getOperador() {
+	public Operario getOperador() {
 		return operador;
 	}
 
-	public void setOperador(Operador operador) {
+	public void setOperador(Operario operador) {
 		this.operador = operador;
 	}
 
