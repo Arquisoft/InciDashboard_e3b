@@ -6,6 +6,17 @@
 	<div class="container" style="text-align: center">
 		<h2 > InciDashBoard  </h2>
 		
+				
+		<div sec:authorize="isAuthenticated()">
+			<p>Bienvenido</p>
+			<p>Usuario Autenticado como : <span
+				sec:authentication="principal.username" th:inline="text">
+				</span></p>
+			</ul>
+		
+		</div>
+		
+		
 	</div>
 	<footer th:replace="fragments/footer" />
 </body>
