@@ -24,6 +24,10 @@ public class IncidenciasService {
 		return incidencesRepository.findOne(id);
 	}
 	
+	public void addIncidencia(Incidence in){
+		incidencesRepository.save(in);
+	}
+	
 	public void cambiaEstadoIncidencia(Incidence inci,Estado es) {
 		switch (es) {
         case ABIERTA:  

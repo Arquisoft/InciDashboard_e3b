@@ -40,7 +40,8 @@ public class Agent {
         this.email = email;
         this.ident = ident;
         this.kind = kind;
-    }
+    }    
+    
 
     public Long getId() {
 		return id;
