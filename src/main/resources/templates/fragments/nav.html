@@ -12,21 +12,24 @@
 		<div class="collapse navbar-collapse" id="myNavbar">
 			<ul class="nav navbar-nav" >
 				<li><a href="/">Home</a></li>
+				<li sec:authorize="isAuthenticated()"><a href="/incidencias/list"
+					> Mis incidencias
+				</a></li>
 			
 			</ul>
 			
 			
 			<ul class="nav navbar-nav navbar-right">
-				<li sec:authorize="!isAuthenticated()"><a href="/login"> 
-				 Login
+				<li sec:authorize="!isAuthenticated()"> <a href="/login"> 
+				<span
+						class="glyphicon glyphicon-user"></span> Login
 				</a></li>
 				<li sec:authorize="isAuthenticated()"><a href="/logout"
-					> Logout
+					> <span
+						class="glyphicon glyphicon-user"></span>Logout
 				</a></li>
 				
-				<li sec:authorize="isAuthenticated()"><a href="/incidencias/list"
-					> Mis incidencias
-				</a></li>
+				
 				
 				
 			</ul>
