@@ -1,5 +1,8 @@
 package inciDashboard.entities;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import javax.persistence.*;
 
 @Entity
@@ -20,6 +23,9 @@ public class Agent {
 	@Column(unique = true)
 	private String ident;   // USUARIO, dni, nif o lo que sea que identifique al agente
 	private String kind;    // "Person","Entity", "Sensor"
+	
+	@OneToMany(mappedBy = "agent",cascade = CascadeType.ALL)
+	private Set<Incidence> incidencias = new HashSet<>();
 
 	/**
 	 * Constructor vacío (ya que es para mapear)

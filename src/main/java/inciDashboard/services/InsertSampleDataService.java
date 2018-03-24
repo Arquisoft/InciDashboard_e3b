@@ -8,13 +8,18 @@ import org.springframework.stereotype.Service;
 import inciDashboard.entities.Agent;
 import inciDashboard.entities.Incidence;
 import inciDashboard.entities.Operario;
-import inciDashboard.util.Estado;
 
 @Service
 public class InsertSampleDataService {
 	
 	@Autowired
 	OperariosService operariosService;
+	
+	@Autowired
+	AgentsService agentsService;
+	
+	@Autowired
+	IncidenciasService incidenciasService;
 	
 	@PostConstruct
 	public void init() {
@@ -23,6 +28,9 @@ public class InsertSampleDataService {
 		Agent ag1 = new Agent("Agent1","123456","Norte","agent1@gmail.com","Ag1","Person");
 		Agent ag2 = new Agent("Agent2","123456","Sur","agent2@gmail.com","Ag2","Sensor");
 		Agent ag3 = new Agent("Agent3","123456","Este","agent3@gmail.com","Ag3","Entity");
+		agentsService.addAgent(ag1);
+		agentsService.addAgent(ag2);
+		agentsService.addAgent(ag3);
 		Incidence inci1 = new Incidence(ag1,"Incidencia1","","Sudafrica",null);
 		Incidence inci2 = new Incidence(ag2,"Incidencia2","","Sudafrica",null);
 		Incidence inci3 = new Incidence(ag3,"Incidencia3","","Sudafrica",null);

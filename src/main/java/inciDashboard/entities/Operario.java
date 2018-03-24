@@ -3,12 +3,7 @@ package inciDashboard.entities;
 import java.util.HashSet;
 import java.util.Set;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 
 @Entity
 public class Operario {
@@ -23,7 +18,7 @@ public class Operario {
 	
 	private String role;
 	
-	@OneToMany(mappedBy = "operario")
+	@OneToMany(mappedBy = "operario",cascade = CascadeType.ALL)
 	private Set<Incidence> incidencias = new HashSet<>();
 	
 	Operario() {
