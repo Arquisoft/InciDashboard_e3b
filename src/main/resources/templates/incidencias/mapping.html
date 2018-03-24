@@ -1,7 +1,10 @@
 <!DOCTYPE html>
 <html>
-<head th:replace="fragments/head" />
-<body>
+<head th:include="fragments/head">
+<meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+<script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
+</head>
+<body onload="iniciar()">
 	<nav th:replace="fragments/nav" />
 	<div class="container">
 		<h1>Incidencia</h1>
@@ -14,45 +17,48 @@
 		<p>
 			Localizacion: <i th:text="${incidencia.location}"></i>
 		</p>
-		
-		
-   		 <div id="map"></div>
-   		 
+
+
+		<div id="map"></div>
+
 		<script th:inline="javascript">
 		/*<![CDATA[*/
+			"use strict";
 			
-		function initMap() {
-			
-			var cadena=[[${incidencia.location}]].split(",");
-			var latitud=cadena[0];
-			var longitud=cadena[1];
-					
-			var location = new google.maps.LatLng(latitud, longitud);
-			var mapCanvas = document.getElementById("map");
-			var mapOptions = {
-				center : location				
-			};
-			
-			var marcador = new google.maps.Marker({
-			    position: location,
-			    title:[[${incidencia.incidenceName}]]
-			});
-			
-			
-			var map = new google.maps.Map(mapCanvas, mapOptions);
-			
-			marcador.setMap(map); 
-        
-        
-      }
+			var mapa;
+
+    function iniciar(){
+        navigator.geolocation.getCurrentPosition(mostrar,errores);
+    }
+
+    function mostrar(posicion){
+    	var cadena=[[${incidencia.location}]].split(",");
+		var latitud=parseFloat(cadena[0]);
+		var longitud=parseFloat(cadena[1]);
+        var ubicacion=new google.maps.LatLng(latitud, longitud);
+
+        var mapaOpciones ={
+            zoom:15,
+            center: ubicacion,
+            mapTypeId:  google.maps.MapTypeId.TERRAIN
+        };
+    
+        mapa= new google.maps.Map(document.getElementById('map'), mapaOpciones);
+        var marcador = new google.maps.Marker({
+            position: ubicacion,
+            map:mapa
+        });
+        marcador.setMap(mapa);
+    }
+
+    function errores(error){
+        alert('Error: '+error.code+' '+error.message);
+    }
 
      
 		/*]]>*/
 	</script>
 
-		
-  		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCRXGSkiOeVhjBkV0XKN5pSC8KVzbUhfQo&callback=initMap">
-   		 </script>
 	</div>
 </body>
 </html>
