@@ -23,7 +23,7 @@ public class Operario {
 	
 	private String role;
 	
-	@OneToMany
+	@OneToMany(mappedBy = "operario")
 	private Set<Incidence> incidencias = new HashSet<>();
 	
 	Operario() {
