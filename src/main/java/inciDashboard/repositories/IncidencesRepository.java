@@ -10,7 +10,7 @@ import inciDashboard.entities.Operario;
 
 public interface IncidencesRepository extends CrudRepository<Incidence,Long> {
 
-	@Query("SELECT o.incidencias FROM Operario o WHERE o=?1 ")
+	@Query("SELECT i FROM Incidence i WHERE i.operario=?1 ")
 	public List<Incidence> getIncidenciasForOperario(Operario operario);
 		
 	
