@@ -22,22 +22,26 @@
 		/*<![CDATA[*/
 			
 		function initMap() {
-			var cadena=[[${incidencia.location}]].split(",");
-			var latitude=cadena[0];
-			var longitud=cadena[1];
 			
-       var map = new google.maps.Map(document.getElementById('map'), {
-          center: {lat: latitude, lng: longitud},
-          zoom: 6
-        });
-        var infoWindow = new google.maps.InfoWindow({map: map});
-        
-        var marker = new google.maps.Marker({
-		    position: location,
-		    title:[[${incid.incidenceName}]]
-		});
-        
-        marker.setMap(infoWindow);
+			var cadena=[[${incidencia.location}]].split(",");
+			var latitud=cadena[0];
+			var longitud=cadena[1];
+					
+			var location = new google.maps.LatLng(latitud, longitud);
+			var mapCanvas = document.getElementById("map");
+			var mapOptions = {
+				center : location				
+			};
+			
+			var marcador = new google.maps.Marker({
+			    position: location,
+			    title:[[${incidencia.incidenceName}]]
+			});
+			
+			
+			var map = new google.maps.Map(mapCanvas, mapOptions);
+			
+			marcador.setMap(map); 
         
         
       }
