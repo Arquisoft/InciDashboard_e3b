@@ -10,7 +10,7 @@
 		<div sec:authorize="isAuthenticated()">
 			<p>Bienvenido</p>
 			<p>Usuario Autenticado como : <span
-				sec:authentication="principal.username" th:inline="text">
+				th:text="${email}" th:inline="text">
 				</span></p>
 			</ul>
 		
