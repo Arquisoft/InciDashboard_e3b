@@ -10,7 +10,7 @@ public class HomeController {
 	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String indexBarra(Model model) {
-		return "redirect:/home";
+		return "redirect:/login";
 	}
 
 	
