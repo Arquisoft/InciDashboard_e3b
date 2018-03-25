@@ -1,5 +1,7 @@
 package inciDashboard.services;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -24,5 +26,10 @@ public class OperariosService {
 	public Operario getOperarioByEmail(String email) {
 		return operatorsRepository.findByEmail(email);		
 	}
-	
+
+	public List<Operario> findAll() {
+		return operatorsRepository.findAll();
+	}
+
+
 }

@@ -1,6 +1,7 @@
 package inciDashboard.controllers;
 
 import java.security.Principal;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -42,15 +43,21 @@ public class IncidenciasController {
 	}
 	
 	/**
-	 * Método que recibe incidencias, las mete en la base de datos y actualiza la tabla
-	 * con el listado de todas las incidencias
-	 * @param incidencia de la incidencia recivida de tipo Long
+	 * Método que recibe incidencias.
+	 * Se encarga de seleccionar el operario con menos incidencias
+	 * y asignarle la nueva incidencia recibida
+	 * @param incidencia nueva que se acaba de recibir
 	 */
 	public void recieveIncidence(Incidence incidencia) {
-		//asignar incidencia
+		//asignar incidencia al operario con menos incidencias asignadas
+		List<Operario> operarios = operariosService.findAll();
+		operarios.sort((o1, o2) -> Integer.compare(o1.getIncidencias().size(), o2.getIncidencias().size()));
+		if(operarios.size()>0) {
+			incidencia.setOperario(operarios.get(0));
+			operarios.get(0).añadirIncidencia(incidencia);
+		}
 		//meter incidencia en base de datos
-		//incidenciasService.addIncidencia(in);
-		//actualizar tabla
+		incidenciasService.addIncidencia(incidencia);
 	}
 
 }
