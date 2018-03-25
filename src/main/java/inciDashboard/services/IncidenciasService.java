@@ -62,4 +62,8 @@ public class IncidenciasService {
 		
 	}
 
+	public Incidence getOne(Long id) {
+		return incidencesRepository.findOne(id);
+	}
+
 }

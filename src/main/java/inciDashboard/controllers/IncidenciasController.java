@@ -2,12 +2,16 @@ package inciDashboard.controllers;
 
 import java.security.Principal;
 import java.util.List;
+import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import inciDashboard.entities.Incidence;
 import inciDashboard.entities.Operario;
@@ -81,6 +85,16 @@ public class IncidenciasController {
 		model.addAttribute("incidenciasList", incidencias);		
 		return "incidencias/listaIncidencias :: tableIncidencias";
 	}
+//	/incidencia/update
+		
+	@RequestMapping(value="/incidencias/update/{id}" , method = RequestMethod.POST)
+	public String getListActualizarIncidenciaFormulario(@PathVariable Long id,@RequestParam String estado, @RequestParam String comentario) {
+		Incidence i=incidenciasService.getOne(id);		
+		i.getComments().add(comentario);	
+		i.setStatus(estadoService.getEstado(estado));
+		
+		return "redirect:/incidencias/list";
+	}
 	
 	
 	/**
@@ -100,5 +114,7 @@ public class IncidenciasController {
 		//meter incidencia en base de datos
 		incidenciasService.addIncidencia(incidencia);
 	}
+	
+	
 
 }
