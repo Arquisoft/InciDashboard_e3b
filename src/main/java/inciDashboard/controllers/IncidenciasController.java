@@ -91,9 +91,9 @@ public class IncidenciasController {
 	public String getListActualizarIncidenciaFormulario(@PathVariable Long id,@RequestParam String estado, @RequestParam(required=false) String comentario) {
 		Incidence i=incidenciasService.findOne(id);		
 		if(comentario!=null && !comentario.isEmpty()) {
-			i.getComments().add(comentario);	
+			incidenciasService.cambiaComentario(i,comentario);	
 		}
-		i.setStatus(estadoService.getEstado(estado));
+		incidenciasService.cambiaEstadoIncidencia(i,estadoService.getEstado(estado));
 		
 		return "redirect:/incidencias/list";
 	}

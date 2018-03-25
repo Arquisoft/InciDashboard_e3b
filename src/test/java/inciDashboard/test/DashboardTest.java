@@ -65,6 +65,6 @@ public class DashboardTest {
 			// Rellenamos el formulario
 			PO_LoginView.fillForm(driver, "oper121223221@gmail.es", "123456");
 			// COmprobamos que entramos en la pagina privada de Alumno
-			PO_View.checkElement(driver, "text", "oper121223221@gmail.es");
+			PO_View.checkElement(driver, "text", "oper12@gmail.es");
 		}
 }

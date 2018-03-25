@@ -4,7 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import inciDashboard.entities.Incidence;
 import inciDashboard.entities.Operario;
@@ -42,28 +44,19 @@ public class IncidenciasService {
 		incidencesRepository.save(in);
 	}
 	
+	@Transactional
+	@Modifying
 	public void cambiaEstadoIncidencia(Incidence inci,Estado es) {
-		switch (es) {
-        case ABIERTA:  
-        	incidencesRepository.cambiaEstadoIncidenciaAAbierta(inci);
-        	break;
-        case EN_PROCESO:  
-        	incidencesRepository.cambiaEstadoIncidenciaAEnProceso(inci);
-        	break;
-        case CERRADA:  
-        	incidencesRepository.cambiaEstadoIncidenciaACerrada(inci);
-        	break;
-        case ANULADA:  
-        	incidencesRepository.cambiaEstadoIncidenciaAAnulada(inci);
-        	break;
-		default:
-			break;	
-		}
-		
+		inci.setStatus(es);
 	}
 
 	public Incidence findOne(Long id) {
 		return incidencesRepository.findOne(id);
+	}
+
+	@Transactional
+	public void cambiaComentario(Incidence i, String comentario) {
+		i.getComments().add(comentario);	
 	}
 
 }
