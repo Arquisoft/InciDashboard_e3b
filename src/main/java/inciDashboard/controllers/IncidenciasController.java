@@ -72,6 +72,16 @@ public class IncidenciasController {
 		return "redirect:/incidencias/list";
 	}
 	
+	@RequestMapping("/incidencias/list/update")
+	public String updateList(Model model, Principal principal) {
+		String email = principal.getName(); // Email es el name de la autenticación		
+		Operario operario = operariosService.getOperarioByEmail(email);		
+		List<Incidence> incidencias = incidenciasService.getIncidenciasForOperario(operario);
+		
+		model.addAttribute("incidenciasList", incidencias);		
+		return "incidencias/listaIncidencias :: tableIncidencias";
+	}
+	
 	
 	/**
 	 * Método que recibe incidencias.
