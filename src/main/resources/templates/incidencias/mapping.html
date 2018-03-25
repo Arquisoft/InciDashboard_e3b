@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head th:include="fragments/head">
 <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
 </head>
@@ -7,17 +7,18 @@
 	<nav th:replace="fragments/nav" />
 	<div class="container">
 		<h1>Incidencia</h1>
-		<p>
+		<ul>
+		<li>
 			Nombre de la incidencia: <i th:text="${incidencia.incidenceName}"></i>
-		</p>
-		<p>
+		</li>
+		<li>
 			Descripcion: <i th:text="${incidencia.description}"></i>
-		</p>
-		<p>
+		</li>
+		<li>
 			Localizacion: <i th:text="${incidencia.location}"></i>
-		</p>
-
-
+		</li>
+		</ul>
+		
 		<div id="map" style="width: 400px; height: 400px;"></div>
 
 		
@@ -58,4 +59,5 @@
         </script>
 	</div>
 </body>
+
 </html>

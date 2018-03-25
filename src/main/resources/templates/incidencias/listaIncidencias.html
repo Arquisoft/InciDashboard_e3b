@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head th:replace="fragments/head" />
 <body>
 	<!-- Barra de Navegación superior -->
@@ -23,7 +23,7 @@
 				</thead>
 				<tbody>
 					<tr th:each="incidencia : ${incidenciasList}">
-						<td><a th:text="${incidencia.incidenceName}" th:href="@{/incidencias/locationOf/{id}(id=${incidencia.id})}">Nombre de la incidencia</a></td>
+						<td><span th:if="${incidencia.isPeligrosa()}"  style="color:red" >*</span> <a th:text="${incidencia.incidenceName}" th:href="@{/incidencias/locationOf/{id}(id=${incidencia.id})}">Nombre de la incidencia</a></td>
 						<td th:text="${incidencia.agent.nombre}">Nombre del agente</td>
 						<td th:text="${incidencia.location}">Localizacion de la incidencia</td>
 						<td th:text="${incidencia.status}">Estado de la incidencia</td>
@@ -32,6 +32,7 @@
 			</table>
 		</div>
 	</div>
+	<p style="color:blue">(*) Las incidencias que se encuentran contempladas como peligrosas se ven marcadas con un '*' delante del nombre</p>
 	<footer th:replace="fragments/footer" />
 </body>
 </html>
