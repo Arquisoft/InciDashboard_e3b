@@ -27,18 +27,7 @@
 						<td th:text="${incidencia.agent.nombre}">Nombre del agente</td>
 						<td th:text="${incidencia.location}">Localizacion de la incidencia</td>
 						<td th:text="${incidencia.status}">Estado de la incidencia</td>
-					</tr>
-					<button type="button" th:id="actualizarButton"
-							class="actualizar">Actualizar Lista</button>
-							<script th:inline="javascript">
-									/*<![CDATA[*/
-										$( "#actualizarButton" ).click(function() {											
-												var urlUpdate = '/incidencias/list/update';												
-												$("#tableIncidencias").load(urlUpdate);
-															
-										});
-									/*]]>*/
-									</script>
+					</tr>					
 				</tbody>
 			</table>
 		</div>
