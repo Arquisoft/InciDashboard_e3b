@@ -1,5 +1,6 @@
 package inciDashboard.services;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,7 +22,16 @@ public class IncidenciasService {
 	}
 	
 	public List<Incidence> getIncidenciasPeligrosasForOperario(Operario operario) {
-		return incidencesRepository.getIncidenciasPeligrosasForOperario(operario);
+		 List<Incidence> listaIncidencias = incidencesRepository.getIncidenciasForOperario(operario);
+		 List<Incidence> list=new ArrayList<>();
+		 for(Incidence i : listaIncidencias)
+		 {
+			 if(i.isPeligrosa())
+				 list.add(i);
+		 }
+			 		 
+		 
+		 return list;
 	}
 
 	public Incidence findById(Long id) {

@@ -192,4 +192,21 @@ public class Incidence {
     public void setOperario(Operario operario) {
         this.operario = operario;
     }
+
+	public boolean isPeligrosa() { 
+		boolean peligro=false;
+		peligro= peligro || getDescription().toLowerCase().contains("peligro") ||  getDescription().toLowerCase().contains("urgencia");
+		if(labels!=null) {
+		for(String etiqueta : labels)
+		{
+			peligro=peligro || etiqueta.toLowerCase().contains("peligro") || etiqueta.toLowerCase().contains("urgencia") ;
+		}
+		}
+		if(fields!=null) {
+			if(fields.containsKey("temperatura"))
+				peligro= peligro || Double.parseDouble(fields.get("temperatura"))>42.0;
+			
+		}
+		return peligro;
+	}
 }

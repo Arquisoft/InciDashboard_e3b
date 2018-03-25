@@ -51,14 +51,18 @@ public class IncidenciasController {
 	
 	
 	@RequestMapping("/incidencias/locationOf/{id}")
-	public String getLocationInci(Model model, @PathVariable Long id) {
+	public String getLocationInci(Model model, @PathVariable Long id , Principal principal) {
 		Incidence incidencia = incidenciasService.findById(id);
+		Operario operario=operariosService.getOperarioByEmail(principal.getName());
+		if(operario.getIncidencias().contains(incidencia)) {
+		
 		if (incidencia != null) {
 			model.addAttribute("incidencia", incidencia);
 			String[] cadena=incidencia.getLocation().split(",");
 			model.addAttribute("latitud",Double.parseDouble(cadena[0]));
 			model.addAttribute("longitud",Double.parseDouble(cadena[1]));
 			return "incidencias/mapping";
+		}
 		}
 		return "redirect:/incidencias/list";
 	}
