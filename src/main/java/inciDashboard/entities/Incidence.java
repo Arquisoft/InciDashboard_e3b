@@ -10,11 +10,12 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 import inciDashboard.util.Estado;
 
 @Entity
-@Table(name = "Incidences")
+@Table(name = "TIncidences")
 public class Incidence {
 
     // Id generado automáticamente para diferenciar cada uno (para mapear)
@@ -38,6 +39,7 @@ public class Incidence {
 
     private Estado status;                      // Ver Enum: "Estado". Ej: ABIERTA, EN_PROCESO, CERRADA, ANULADA
     private Date expiration;                    // fecha de caducidad, ej: en caso de los sensores de temperatura
+    
     private boolean cacheable;                  // Si esta incidencia se va a guardar o no. true | false
 
     @ElementCollection(targetClass = String.class)

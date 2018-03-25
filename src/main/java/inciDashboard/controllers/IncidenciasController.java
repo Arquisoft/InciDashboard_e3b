@@ -1,6 +1,7 @@
 package inciDashboard.controllers;
 
 import java.security.Principal;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -26,9 +27,27 @@ public class IncidenciasController {
 	public String getList(Model model, Principal principal) {
 		String email = principal.getName(); // Email es el name de la autenticación		
 		Operario operario = operariosService.getOperarioByEmail(email);		
-		model.addAttribute("incidenciasList", incidenciasService.getIncidenciasForOperario(operario));		
+		List<Incidence> incidencias = incidenciasService.getIncidenciasForOperario(operario);
+		if(incidenciasService.getIncidenciasPeligrosasForOperario(operario).size()>0)
+		{
+			model.addAttribute("errorMsg", "Hay incidencias peligrosas que chequear");
+		}
+		
+		model.addAttribute("incidenciasList", incidencias);		
 		return "incidencias/listaIncidencias";
 	}
+	
+	@RequestMapping("/incidencias/listPeligrosas")
+	public String getListPeligrosas(Model model, Principal principal) {
+		String email = principal.getName(); // Email es el name de la autenticación		
+		Operario operario = operariosService.getOperarioByEmail(email);		
+		List<Incidence> incidencias = incidenciasService.getIncidenciasPeligrosasForOperario(operario);
+		model.addAttribute("incidenciasList", incidencias);		
+		return "incidencias/listaIncidencias";
+	}
+	
+	
+	
 	
 	
 	@RequestMapping("/incidencias/locationOf/{id}")
@@ -36,6 +55,9 @@ public class IncidenciasController {
 		Incidence incidencia = incidenciasService.findById(id);
 		if (incidencia != null) {
 			model.addAttribute("incidencia", incidencia);
+			String[] cadena=incidencia.getLocation().split(",");
+			model.addAttribute("latitud",Double.parseDouble(cadena[0]));
+			model.addAttribute("longitud",Double.parseDouble(cadena[1]));
 			return "incidencias/mapping";
 		}
 		return "redirect:/incidencias/list";

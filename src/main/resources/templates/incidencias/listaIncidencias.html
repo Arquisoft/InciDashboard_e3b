@@ -7,6 +7,7 @@
 	<div class="container">
 		<h2>Incidencias</h2>
 		<p>Mis incidencias:</p>
+		<span th:text="${errorMsg}" style="color:red" ></span>
 		<div class="table-responsive">
 			<table class="table table-hover" th:fragment="tableIncidencias"
 				id="tableIncidencias">

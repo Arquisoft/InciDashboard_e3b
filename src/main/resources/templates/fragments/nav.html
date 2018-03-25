@@ -12,10 +12,17 @@
 		<div class="collapse navbar-collapse" id="myNavbar">
 			<ul class="nav navbar-nav" >
 				<li><a href="/">Home</a></li>
-				<li sec:authorize="isAuthenticated()"><a href="/incidencias/list"
-					> Mis incidencias
-				</a></li>
-			
+				
+				<li id="marks-menu" class="dropdown"><a class="dropdown-toggle"
+					data-toggle="dropdown" href="#"  > Incidencias <span
+						class="caret"></span>
+				</a>
+					<ul class="dropdown-menu">
+						<li sec:authorize="isAuthenticated()"><a
+							href="/incidencias/list" >Mis Incidencias</a></li>
+						<li><a href="/incidencias/listPeligrosas">Incidencias Peligrosas</a></li>
+					</ul></li>
+							
 			</ul>
 			
 			
