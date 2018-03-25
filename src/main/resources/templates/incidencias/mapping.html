@@ -2,9 +2,8 @@
 <html>
 <head th:include="fragments/head">
 <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
-<script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
 </head>
-<body onload="iniciar()">
+<body >
 	<nav th:replace="fragments/nav" />
 	<div class="container">
 		<h1>Incidencia</h1>
@@ -19,10 +18,11 @@
 		</p>
 
 
-		<div id="map" style="width: 400px; height: 400px;></div>
+		<div id="map" style="width: 400px; height: 400px;"></div>
 
-		<script th:inline="javascript">
-		/*<![CDATA[*/
+		
+		 <script th:inline="javascript" >
+    /*<![CDATA[*/
 			"use strict";
 			
 			var mapa;
@@ -50,10 +50,12 @@
     function errores(error){
         alert('Error: '+error.code+' '+error.message);
     }
+    iniciar();
      
 		/*]]>*/
-	</script>
-
+	</script >
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCRXGSkiOeVhjBkV0XKN5pSC8KVzbUhfQo">
+        </script>
 	</div>
 </body>
 </html>

@@ -33,7 +33,7 @@ public class InsertSampleDataService {
 		agentsService.addAgent(ag3);
 		Incidence inci1 = new Incidence(ag1,"Incidencia1","Descripcion1","21,33",null);
 		Incidence inci2 = new Incidence(ag2,"Incidencia2","Descripcion2","60,43",null);
-		Incidence inci3 = new Incidence(ag3,"Incidencia3","Descripcion3","-8,-99",null);
+		Incidence inci3 = new Incidence(ag3,"Incidencia3","Descripcion3","43.3667253,-5.8587837",null);
 		inci1.setOperario(oper1);
 		inci2.setOperario(oper1);
 		inci3.setOperario(oper1);
