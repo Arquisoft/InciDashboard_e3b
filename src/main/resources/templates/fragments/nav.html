@@ -11,9 +11,9 @@
 		</div>
 		<div class="collapse navbar-collapse" id="myNavbar">
 			<ul class="nav navbar-nav" >
-				<li><a href="/home">Home</a></li>
+				<li sec:authorize="isAuthenticated()"><a href="/home">Home</a></li>
 				
-				<li id="marks-menu" class="dropdown"><a class="dropdown-toggle"
+				<li sec:authorize="isAuthenticated()" id="marks-menu" class="dropdown"><a class="dropdown-toggle"
 					data-toggle="dropdown" href="#"  > Incidencias <span
 						class="caret"></span>
 				</a>

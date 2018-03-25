@@ -21,10 +21,14 @@ public class InsertSampleDataService {
 	@Autowired
 	IncidenciasService incidenciasService;
 	
+	@Autowired
+	RolesService rolesService;
+	
+	
 	@PostConstruct
 	public void init() {
 		Operario oper1 = new Operario( "oper12@gmail.es","123456","Operario");
-		
+		oper1.setRole(rolesService.getRoles()[0]);
 		Agent ag1 = new Agent("Agent1","123456","Norte","agent121223221@gmail.com","Ag111223221","Person");
 		Agent ag2 = new Agent("Agent2","123456","Sur","agent221223221@gmail.com","Ag221223221","Sensor");
 		Agent ag3 = new Agent("Agent3","123456","Este","agent321223221@gmail.com","Ag331223221","Entity");
