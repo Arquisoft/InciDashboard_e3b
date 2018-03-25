@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class HomeController {
 	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public String indexBarra(Model model) {
+	public String home(Model model) {
 		return "redirect:/login";
 	}	
 }

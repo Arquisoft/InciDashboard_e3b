@@ -6,7 +6,6 @@ import java.util.Set;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "Agents")
 public class Agent {
 
 	// Id generado automáticamente para diferenciar cada uno (para mapear)

@@ -23,7 +23,7 @@ public class InsertSampleDataService {
 	
 	@PostConstruct
 	public void init() {
-		Operario oper1 = new Operario( "oper121223221@gmail.es","123456","Operario");
+		Operario oper1 = new Operario( "oper12@gmail.es","123456","Operario");
 		
 		Agent ag1 = new Agent("Agent1","123456","Norte","agent121223221@gmail.com","Ag111223221","Person");
 		Agent ag2 = new Agent("Agent2","123456","Sur","agent221223221@gmail.com","Ag221223221","Sensor");
