@@ -26,17 +26,14 @@
 			"use strict";
 			
 			var mapa;
-
     function iniciar(){
         navigator.geolocation.getCurrentPosition(mostrar,errores);
     }
-
     function mostrar(posicion){
     	var cadena=[[${incidencia.location}]].split(",");
 		var latitud=parseFloat(cadena[0]);
 		var longitud=parseFloat(cadena[1]);
         var ubicacion=new google.maps.LatLng(latitud, longitud);
-
         var mapaOpciones ={
             zoom:15,
             center: ubicacion,
@@ -50,11 +47,9 @@
         });
         marcador.setMap(mapa);
     }
-
     function errores(error){
         alert('Error: '+error.code+' '+error.message);
     }
-
      
 		/*]]>*/
 	</script>

@@ -40,5 +40,17 @@ public class IncidenciasController {
 		}
 		return "redirect:/incidencias/list";
 	}
+	
+	/**
+	 * Método que recibe incidencias, las mete en la base de datos y actualiza la tabla
+	 * con el listado de todas las incidencias
+	 * @param incidencia de la incidencia recivida de tipo Long
+	 */
+	public void recieveIncidence(Incidence incidencia) {
+		//asignar incidencia
+		//meter incidencia en base de datos
+		//incidenciasService.addIncidencia(in);
+		//actualizar tabla
+	}
 
 }

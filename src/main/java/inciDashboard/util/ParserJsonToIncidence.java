@@ -16,7 +16,7 @@ import inciDashboard.entities.Incidence;
 
 public class ParserJsonToIncidence {
 	
-	public Incidence JsonToIncidence(JSONObject json) {
+	public static Incidence JsonToIncidence(JSONObject json) {
 		String username = json.getString("username");
 		String password = json.getString("password");
 		String kind = json.getString("kind");
