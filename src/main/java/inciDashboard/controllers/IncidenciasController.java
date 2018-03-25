@@ -11,11 +11,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import inciDashboard.entities.Incidence;
 import inciDashboard.entities.Operario;
+import inciDashboard.services.EstadoService;
 import inciDashboard.services.IncidenciasService;
 import inciDashboard.services.OperariosService;
 
 @Controller
 public class IncidenciasController {
+	
+	@Autowired
+	EstadoService estadoService;
 	
 	@Autowired
 	OperariosService operariosService;
@@ -57,6 +61,7 @@ public class IncidenciasController {
 		if(operario.getIncidencias().contains(incidencia)) {
 		
 		if (incidencia != null) {
+			model.addAttribute("estados",estadoService.getEstados());
 			model.addAttribute("incidencia", incidencia);
 			String[] cadena=incidencia.getLocation().split(",");
 			model.addAttribute("latitud",Double.parseDouble(cadena[0]));
