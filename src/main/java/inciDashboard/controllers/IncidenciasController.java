@@ -88,9 +88,10 @@ public class IncidenciasController {
 //	/incidencia/update
 		
 	@RequestMapping(value="/incidencias/update/{id}" , method = RequestMethod.POST)
-	public String getListActualizarIncidenciaFormulario(@PathVariable Long id,@RequestParam String estado, @RequestParam String comentario) {
+	public String getListActualizarIncidenciaFormulario(@PathVariable Long id,@RequestParam String estado, @RequestParam(required=false) String comentario) {
 		Incidence i=incidenciasService.getOne(id);		
-		i.getComments().add(comentario);	
+		if(comentario!=null && !comentario.isEmpty())
+			i.getComments().add(comentario);	
 		i.setStatus(estadoService.getEstado(estado));
 		
 		return "redirect:/incidencias/list";
