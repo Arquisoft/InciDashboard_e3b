@@ -63,6 +63,7 @@ public class IncidenciasController {
 		return "redirect:/incidencias/list";
 	}
 	
+	
 	/**
 	 * Método que recibe incidencias.
 	 * Se encarga de seleccionar el operario con menos incidencias

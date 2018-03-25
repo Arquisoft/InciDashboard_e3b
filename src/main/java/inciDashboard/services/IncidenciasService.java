@@ -19,6 +19,10 @@ public class IncidenciasService {
 	public List<Incidence> getIncidenciasForOperario(Operario operario) {
 		return incidencesRepository.getIncidenciasForOperario(operario);
 	}
+	
+	public List<Incidence> getIncidenciasPeligrosasForOperario(Operario operario) {
+		return incidencesRepository.getIncidenciasPeligrosasForOperario(operario);
+	}
 
 	public Incidence findById(Long id) {
 		return incidencesRepository.findOne(id);

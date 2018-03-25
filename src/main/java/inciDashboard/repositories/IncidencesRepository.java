@@ -24,6 +24,9 @@ public interface IncidencesRepository extends CrudRepository<Incidence,Long> {
 	
 	@Query("UPDATE Incidence i SET i.status = inciDashboard.util.Estado.ANULADA WHERE i=?1 ")
 	public void cambiaEstadoIncidenciaAAnulada(Incidence incidencia);
+
+	@Query("SELECT i FROM Incidence i WHERE i.operario=?1")
+	public List<Incidence> getIncidenciasPeligrosasForOperario(Operario operario);
 		
 	
 }
