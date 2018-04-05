@@ -1,5 +1,8 @@
 # InciDashboard_e3b
 [![Build Status](https://travis-ci.org/Arquisoft/InciDashboard_e3b.svg?branch=master)](https://travis-ci.org/Arquisoft/InciDashboard_e3b)
+[![codecov](https://codecov.io/gh/Arquisoft/InciDashboard_e3b/branch/master/graph/badge.svg)](https://codecov.io/gh/Arquisoft/InciDashboard_e3b)
+
+
 
 InciDashboard_e3b
 # Autores 2017-2018
