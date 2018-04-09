@@ -38,7 +38,7 @@ public class InsertSampleDataService {
 		Incidence inci1 = new Incidence(ag1,"Incidencia1","Descripcion1","21,33",null);
 		Incidence inci2 = new Incidence(ag2,"Incidencia2","Descripcion2","60,43",null);
 		Incidence inci3 = new Incidence(ag3,"Incidencia3","Descripcion3","-8,-99",null);
-		Incidence inciPeligrosa = new Incidence(ag3,"Incidencia3","Peligro","-8,-99",null);
+		Incidence inciPeligrosa = new Incidence(ag3,"Incidencia4","Peligro","-8,-99",null);
 		inciPeligrosa.setOperario(oper1);
 		inci1.setOperario(oper1);
 		inci2.setOperario(oper1);

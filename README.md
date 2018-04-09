@@ -11,3 +11,26 @@ InciDashboard_e3b
 + Manuel Junco Diez (UO252010)
 + Ivan Suarez Castiñeiras (UO244730)
 + Pablo Gonzalez Martinez (UO245699)
+
+
+## Datos de prueba
+
+### Datos del operario
+|Email del operario      |       Contraseña       | 
+|------------------------|------------------------|
+|oper12@gmail.es         |         123456         | 
+
+### Datos de las incidencias
+|Nombre de la incidencia |       Descripcion      |  Localizacion  | Agente emisor | Operario asignado |
+|------------------------|------------------------|----------------|---------------|-------------------|
+|Incidencia1             |       Descripcion1     |     21,33      | Agent1        | oper12@gmail.es   |
+|Incidencia2             |       Descripcion2     |     60,43      | Agent2        | oper12@gmail.es   |
+|Incidencia3             |       Descripcion3     |     -8,-99     | Agent3        | oper12@gmail.es   |
+|Incidencia4             |       Peligro	      |     -8,-99     | Agent3        | oper12@gmail.es   |
+
+###Datos de los agentes
+|Nombre del agente       |       Email               |  Identificador  |  Tipo   |
+|------------------------|---------------------------|-----------------|---------|
+|Agent1                  |  agent121223221@gmail.com |  Ag111223221    | Person  |
+|Agent2                  |  agent221223221@gmail.com |  Ag221223221    | Sensor  |
+|Agent3                  |  agent321223221@gmail.com |  Ag331223221    | Entity  |
