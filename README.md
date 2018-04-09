@@ -28,9 +28,10 @@ InciDashboard_e3b
 |Incidencia3             |       Descripcion3     |     -8,-99     | Agent3        | oper12@gmail.es   |
 |Incidencia4             |       Peligro	      |     -8,-99     | Agent3        | oper12@gmail.es   |
 
-###Datos de los agentes
-|Nombre del agente       |       Email               |  Identificador  |  Tipo   |
-|------------------------|---------------------------|-----------------|---------|
-|Agent1                  |  agent121223221@gmail.com |  Ag111223221    | Person  |
-|Agent2                  |  agent221223221@gmail.com |  Ag221223221    | Sensor  |
-|Agent3                  |  agent321223221@gmail.com |  Ag331223221    | Entity  |
+### Datos de los agentes
+
+|Nombre del agente      |       Email               |  Identificador  |  Tipo   |
+|-----------------------|---------------------------|-----------------|---------|
+|Agent1                 |  agent121223221@gmail.com |  Ag111223221    | Person  |
+|Agent2                 |  agent221223221@gmail.com |  Ag221223221    | Sensor  |
+|Agent3                 |  agent321223221@gmail.com |  Ag331223221    | Entity  |
