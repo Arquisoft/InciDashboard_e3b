@@ -20,8 +20,6 @@ InciDashboard_e3b
 
 #### Inicio con Apache Kafka en MS-Windows
 
-Ejecutar el fichero: '[doc/examples/incimanager-kafka-server-start.bat](doc/examples/incimanager-kafka-server-start.bat)'
-
 ~~~batchfile
 REM Start Apache Zookeeper server:
 start "ZooKeeper" /D ".\bin\windows\" "zookeeper-server-start.bat" "..\..\config\zookeeper.properties"
