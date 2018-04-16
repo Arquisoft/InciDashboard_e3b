@@ -13,6 +13,29 @@ InciDashboard_e3b
 + Pablo Gonzalez Martinez (UO245699)
 
 
+### Requisitos para ejecutar el proyecto
+- [Apache Maven](https://maven.apache.org) (versión: >= 3.5).
+- [Apache Kafka](https://kafka.apache.org) (versión: >= 1.0).
+- [Hsqldb](http://hsqldb.org/) (version : 2.4.0).
+
+#### Inicio con Apache Kafka en MS-Windows
+
+~~~batchfile
+REM Start Apache Zookeeper server:
+start "ZooKeeper" /D ".\bin\windows\" "zookeeper-server-start.bat" "..\..\config\zookeeper.properties"
+REM Wait 10 seconds:
+timeout 10
+REM Start Apache Kafka server:
+start "Kafka" /D ".\bin\windows\" "kafka-server-start.bat" "..\..\config\server.properties"
+~~~
+
+### Inicio del servicio InciDashboard
+Situarse en el directorio donde se encuentre el proyecto.
+~~~
+mvn spring-boot:run
+~~~
+
+
 ## Datos de prueba
 
 ### Datos del operario
