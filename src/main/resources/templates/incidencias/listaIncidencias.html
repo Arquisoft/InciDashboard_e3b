@@ -2,7 +2,7 @@
 <html lang="es">
 <head th:replace="fragments/head" />
 <body>
-	<!-- Barra de Navegación superior -->
+	<!-- Barra de Navegaciï¿½n superior -->
 	<nav th:replace="fragments/nav" />
 	<div class="container">
 		<h2>Incidencias</h2>
@@ -30,6 +30,9 @@
 					</tr>					
 				</tbody>
 			</table>
+			<script>setTimeout(function(){
+				   window.location.reload(1);
+			}, 5000);</script>
 		</div>
 	</div>
 	<p style="text-align:center; color:blue">(*) Las incidencias que se encuentran contempladas como peligrosas se ven marcadas con un '*' delante del nombre</p>
