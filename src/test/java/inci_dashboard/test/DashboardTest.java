@@ -26,8 +26,7 @@ public class DashboardTest {
 	private static WebDriver driver;
 	@Value("${local.server.port:8090}")
 	private int port;
-	private String baseUrl;
-//	private StringBuffer verificationErrors = new StringBuffer(); // TODO: comento porque no se utiliza para nada... hasta que se utilice. Para evitar error de Codacy
+	//	private StringBuffer verificationErrors = new StringBuffer(); // TODO: comento porque no se utiliza para nada... hasta que se utilice. Para evitar error de Codacy
 //	private int timeout = 9;
 
 	public static WebDriver getDriver(String PathFirefox) {
@@ -40,8 +39,8 @@ public class DashboardTest {
 	// Antes de cada prueba se navega al URL home de la aplicaci�nn
 	@Before
 	public void setUp() {
-		driver = new HtmlUnitDriver();	
-		baseUrl = "http://localhost:" + port;
+		driver = new HtmlUnitDriver();
+		String baseUrl = "http://localhost:" + port;		
 		driver.manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
 		logger.info("Using base URL: '" + baseUrl + "'");
 	}
