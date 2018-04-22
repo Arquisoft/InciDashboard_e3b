@@ -1,23 +1,21 @@
-package inciDashboard.controllers;
+package inci_dashboard.controllers;
 
 import java.security.Principal;
 import java.util.List;
-import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import inciDashboard.entities.Incidence;
-import inciDashboard.entities.Operario;
-import inciDashboard.services.EstadoService;
-import inciDashboard.services.IncidenciasService;
-import inciDashboard.services.OperariosService;
+import inci_dashboard.entities.Incidence;
+import inci_dashboard.entities.Operario;
+import inci_dashboard.services.EstadoService;
+import inci_dashboard.services.IncidenciasService;
+import inci_dashboard.services.OperariosService;
 
 @Controller
 public class IncidenciasController {

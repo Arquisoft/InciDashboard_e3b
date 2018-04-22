@@ -1,13 +1,12 @@
-package inciDashboard.repositories;
+package inci_dashboard.repositories;
 
 import java.util.List;
 
-import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 
-import inciDashboard.entities.Incidence;
-import inciDashboard.entities.Operario;
+import inci_dashboard.entities.Incidence;
+import inci_dashboard.entities.Operario;
 
 public interface IncidencesRepository extends CrudRepository<Incidence,Long> {
 
