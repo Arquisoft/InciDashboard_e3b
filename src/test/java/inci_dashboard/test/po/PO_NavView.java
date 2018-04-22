@@ -1,4 +1,4 @@
-package inci_dashboard.test.PO;
+package inci_dashboard.test.po;
 
 import static org.junit.Assert.assertTrue;
 

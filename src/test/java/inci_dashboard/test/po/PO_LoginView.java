@@ -1,4 +1,4 @@
-package inci_dashboard.test.PO;
+package inci_dashboard.test.po;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;

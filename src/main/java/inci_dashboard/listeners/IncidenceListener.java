@@ -1,15 +1,14 @@
 package inci_dashboard.listeners;
 
-import javax.annotation.ManagedBean;
-
-import org.apache.log4j.Logger;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.kafka.annotation.KafkaListener;
-
 import inci_dashboard.controllers.MainController;
 import inci_dashboard.entities.Incidence;
 import inci_dashboard.util.ParserJsonToIncidence;
-import org.json.*;
+import org.apache.log4j.Logger;
+import org.json.JSONObject;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.kafka.annotation.KafkaListener;
+
+import javax.annotation.ManagedBean;
 
 
 @ManagedBean
