@@ -16,7 +16,7 @@ before_script:
 - "sh -e /etc/init.d/xvfb start"
 - sleep 3 # give xvfb some time to start
 - psql -c 'create database postgresql;' -U postgres
-- psql -c "CREATE USER postgres WITH PASSWORD 'changeit';" -U post
+- psql -c "CREATE USER postgres WITH PASSWORD 'changeit';" -U postgres
 before_install:
 
 before_install:
