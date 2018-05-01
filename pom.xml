@@ -8,7 +8,6 @@
 	<artifactId>InciDashboard_e3b</artifactId>
 	<name>InciDashboard_e3b</name>
 	<version>0.0.1</version>
-
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
@@ -19,6 +18,7 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.version>1.8</java.version>
+		<start-class>inci_dashboard.InciDashboardApplication</start-class>
 	</properties>
 
 	<dependencies>
@@ -109,11 +109,24 @@
 			<artifactId>json-path</artifactId>
 		</dependency>
 		<!-- https://mvnrepository.com/artifact/org.json/json -->
+
+	<dependency>
+    	<groupId>org.json</groupId>
+    	<artifactId>json</artifactId>
+    	<version>20180130</version>
+	</dependency>
+	
+	<dependency>
+		<groupId>org.postgresql</groupId>
+		<artifactId>postgresql</artifactId>
+	</dependency> 
+
 		<dependency>
 			<groupId>org.json</groupId>
 			<artifactId>json</artifactId>
 			<version>20180130</version>
 		</dependency>
+
 
 	</dependencies>
 
