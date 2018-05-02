@@ -1,6 +1,5 @@
 package inci_dashboard.test;
 
-import inci_dashboard.InciDashboardApplication;
 import inci_dashboard.test.po.PO_LoginView;
 import inci_dashboard.test.po.PO_NavView;
 import inci_dashboard.test.po.PO_View;
@@ -13,6 +12,8 @@ import org.openqa.selenium.htmlunit.HtmlUnitDriver;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
+
+import es.uniovi.asw.e3b.InciDashboardApplication;
 
 import java.util.concurrent.TimeUnit;
 
