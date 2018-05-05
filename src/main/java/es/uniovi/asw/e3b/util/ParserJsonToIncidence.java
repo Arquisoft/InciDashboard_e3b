@@ -1,22 +1,19 @@
-package inci_dashboard.util;
+package es.uniovi.asw.e3b.util;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
 import java.util.Set;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import inci_dashboard.entities.Agent;
-import inci_dashboard.entities.Incidence;
+import es.uniovi.asw.e3b.entities.Agent;
+import es.uniovi.asw.e3b.entities.Incidence;
 
 public class ParserJsonToIncidence {
 	

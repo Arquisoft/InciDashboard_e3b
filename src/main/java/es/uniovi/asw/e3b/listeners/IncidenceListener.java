@@ -1,4 +1,4 @@
-package inci_dashboard.listeners;
+package es.uniovi.asw.e3b.listeners;
 
 import javax.annotation.ManagedBean;
 
@@ -7,10 +7,10 @@ import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.annotation.KafkaListener;
 
-import inci_dashboard.controllers.IncidenciasController;
-import inci_dashboard.controllers.MainController;
-import inci_dashboard.entities.Incidence;
-import inci_dashboard.util.ParserJsonToIncidence;
+import es.uniovi.asw.e3b.controllers.IncidenciasController;
+import es.uniovi.asw.e3b.controllers.MainController;
+import es.uniovi.asw.e3b.entities.Incidence;
+import es.uniovi.asw.e3b.util.ParserJsonToIncidence;
 
 
 @ManagedBean

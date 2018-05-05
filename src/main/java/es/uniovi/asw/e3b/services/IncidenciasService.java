@@ -1,4 +1,4 @@
-package inci_dashboard.services;
+package es.uniovi.asw.e3b.services;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -8,10 +8,10 @@ import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import inci_dashboard.entities.Incidence;
-import inci_dashboard.entities.Operario;
-import inci_dashboard.repositories.IncidencesRepository;
-import inci_dashboard.util.Estado;
+import es.uniovi.asw.e3b.entities.Incidence;
+import es.uniovi.asw.e3b.entities.Operario;
+import es.uniovi.asw.e3b.repositories.IncidencesRepository;
+import es.uniovi.asw.e3b.util.Estado;
 
 @Service
 public class IncidenciasService {

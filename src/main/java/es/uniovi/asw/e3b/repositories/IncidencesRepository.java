@@ -1,12 +1,12 @@
-package inci_dashboard.repositories;
+package es.uniovi.asw.e3b.repositories;
 
 import java.util.List;
 
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 
-import inci_dashboard.entities.Incidence;
-import inci_dashboard.entities.Operario;
+import es.uniovi.asw.e3b.entities.Incidence;
+import es.uniovi.asw.e3b.entities.Operario;
 
 public interface IncidencesRepository extends CrudRepository<Incidence,Long> {
 

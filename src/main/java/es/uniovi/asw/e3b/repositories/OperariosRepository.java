@@ -1,10 +1,10 @@
-package inci_dashboard.repositories;
+package es.uniovi.asw.e3b.repositories;
 
 import java.util.List;
 
 import org.springframework.data.repository.CrudRepository;
 
-import inci_dashboard.entities.Operario;
+import es.uniovi.asw.e3b.entities.Operario;
 
 public interface OperariosRepository extends CrudRepository<Operario,Long> {
 	

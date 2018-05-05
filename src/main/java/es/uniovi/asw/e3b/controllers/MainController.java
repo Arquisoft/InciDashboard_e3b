@@ -1,4 +1,4 @@
-package inci_dashboard.controllers;
+package es.uniovi.asw.e3b.controllers;
 
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;

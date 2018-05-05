@@ -1,4 +1,4 @@
-package inci_dashboard.services;
+package es.uniovi.asw.e3b.services;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -8,9 +8,9 @@ import javax.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import inci_dashboard.entities.Agent;
-import inci_dashboard.entities.Incidence;
-import inci_dashboard.entities.Operario;
+import es.uniovi.asw.e3b.entities.Agent;
+import es.uniovi.asw.e3b.entities.Incidence;
+import es.uniovi.asw.e3b.entities.Operario;
 
 @Service
 public class InsertSampleDataService {
