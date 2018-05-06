@@ -26,12 +26,13 @@
 				<tbody>
 					<tr th:each="incidencia : ${incidenciasList}">
 						<td th:text="${incidencia.status}">Estado de la incidencia</td>
+						<td th:text="${incidencia.agent.nombre}">Nombre del agente</td>
 						<td><span th:if="${incidencia.isPeligrosa()}"
 							style="color: red">*</span> <a
 							th:text="${incidencia.incidenceName}"
 							th:href="@{/incidencias/locationOf/{id}(id=${incidencia.id})}">Nombre
 								de la incidencia</a></td>
-						<td th:text="${incidencia.agent.nombre}">Nombre del agente</td>		
+								
 						<td th:text="${incidencia.description}">Descripcion de la incidencia</td>
 						<td th:text="${incidencia.location}">Localizacion de la incidencia</td>
 						<td><span th:each="label : ${incidencia.labels}"> <span
