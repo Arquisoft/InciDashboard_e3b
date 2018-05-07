@@ -1,5 +1,7 @@
 package inci_dashboard.test.utils;
 
+import static org.junit.Assert.*;
+
 import org.json.JSONObject;
 import org.junit.Test;
 
@@ -26,6 +28,8 @@ public class ParserTest {
 				"  \"cacheable\": \"true\"\r\n" + 
 				"}";
 		Incidence inci = ParserJsonToIncidence.JsonToIncidence(new JSONObject(js));
+		assertEquals(inci.getAgent().getEmail(),"paco@gmail.com");
+		assertEquals(inci.getDescription(), "Descripción de la incidencia de prueba");
 	}
 
 }
