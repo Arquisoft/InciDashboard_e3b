@@ -18,6 +18,9 @@ import es.uniovi.asw.e3b.entities.Incidence;
 public class ParserJsonToIncidence {
 	
 	public static Incidence JsonToIncidence(JSONObject json) {
+		//El json real pasa un objeto agent por lo que no es tan facil obtener el username y password
+		
+		
 		String username = json.getString("username");
 		String password = json.getString("password");
 		String kind = json.getString("kind");
