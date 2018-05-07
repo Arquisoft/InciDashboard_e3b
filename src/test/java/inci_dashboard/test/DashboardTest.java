@@ -71,7 +71,7 @@ public class DashboardTest {
 		// Vamos al formulario de logueo.
 		PO_NavView.clickOption(driver, "login", "class", "btn btn-primary");
 		// Rellenamos el formulario
-		PO_LoginView.fillForm(driver, "oper121223221@gmail.es", "123456");
+		PO_LoginView.fillForm(driver, "oper12@gmail.es", "123456");
 		// COmprobamos que entramos en la pagina privada de Alumno
 		PO_View.checkElement(driver, "text", "oper12@gmail.es");
 	}
