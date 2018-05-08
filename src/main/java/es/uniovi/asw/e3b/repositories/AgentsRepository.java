@@ -1,8 +1,8 @@
-package inci_dashboard.repositories;
+package es.uniovi.asw.e3b.repositories;
 
 import org.springframework.data.repository.CrudRepository;
 
-import inci_dashboard.entities.Agent;
+import es.uniovi.asw.e3b.entities.Agent;
 
 public interface AgentsRepository extends CrudRepository<Agent,Long>{
 

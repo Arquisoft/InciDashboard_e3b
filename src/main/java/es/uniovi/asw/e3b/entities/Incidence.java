@@ -1,4 +1,4 @@
-package inci_dashboard.entities;
+package es.uniovi.asw.e3b.entities;
 
 import java.util.Date;
 import java.util.HashMap;
@@ -10,7 +10,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-import inci_dashboard.util.Estado;
+
+import es.uniovi.asw.e3b.util.Estado;
 
 @Entity
 @Table(name = "TIncidences")

@@ -1,10 +1,10 @@
-package inci_dashboard.services;
+package es.uniovi.asw.e3b.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import inci_dashboard.entities.Agent;
-import inci_dashboard.repositories.AgentsRepository;
+import es.uniovi.asw.e3b.entities.Agent;
+import es.uniovi.asw.e3b.repositories.AgentsRepository;
 
 @Service
 public class AgentsService {

@@ -1,10 +1,8 @@
-package inci_dashboard.controllers;
+package es.uniovi.asw.e3b.controllers;
 
-import inci_dashboard.entities.Incidence;
-import inci_dashboard.entities.Operario;
-import inci_dashboard.services.EstadoService;
-import inci_dashboard.services.IncidenciasService;
-import inci_dashboard.services.OperariosService;
+import java.security.Principal;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,8 +11,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import java.security.Principal;
-import java.util.List;
+import es.uniovi.asw.e3b.entities.Incidence;
+import es.uniovi.asw.e3b.entities.Operario;
+import es.uniovi.asw.e3b.services.EstadoService;
+import es.uniovi.asw.e3b.services.IncidenciasService;
+import es.uniovi.asw.e3b.services.OperariosService;
 
 @Controller
 public class IncidenciasController {

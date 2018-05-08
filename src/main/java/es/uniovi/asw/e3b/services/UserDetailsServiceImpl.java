@@ -1,4 +1,7 @@
-package inci_dashboard.services;
+package es.uniovi.asw.e3b.services;
+
+import java.util.HashSet;
+import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
@@ -8,11 +11,8 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-
-import inci_dashboard.entities.Operario;
-import inci_dashboard.repositories.OperariosRepository;
-
-import java.util.*;
+import es.uniovi.asw.e3b.entities.Operario;
+import es.uniovi.asw.e3b.repositories.OperariosRepository;
 
 @Service
 public class UserDetailsServiceImpl implements UserDetailsService {

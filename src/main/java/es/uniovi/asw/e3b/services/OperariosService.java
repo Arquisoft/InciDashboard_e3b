@@ -1,4 +1,4 @@
-package inci_dashboard.services;
+package es.uniovi.asw.e3b.services;
 
 import java.util.List;
 
@@ -6,8 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import inci_dashboard.entities.Operario;
-import inci_dashboard.repositories.OperariosRepository;
+import es.uniovi.asw.e3b.entities.Operario;
+import es.uniovi.asw.e3b.repositories.OperariosRepository;
 
 @Service
 public class OperariosService {

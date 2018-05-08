@@ -1,4 +1,4 @@
-package inci_dashboard.entities;
+package es.uniovi.asw.e3b.entities;
 
 import java.util.HashSet;
 import java.util.Set;

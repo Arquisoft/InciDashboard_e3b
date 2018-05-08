@@ -1,4 +1,4 @@
-package inci_dashboard.services;
+package es.uniovi.asw.e3b.services;
 
 import org.springframework.stereotype.Service;
 

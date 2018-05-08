@@ -1,4 +1,4 @@
-package inci_dashboard.controllers;
+package es.uniovi.asw.e3b.controllers;
 
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;

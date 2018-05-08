@@ -1,8 +1,8 @@
-package inci_dashboard.services;
+package es.uniovi.asw.e3b.services;
 
 import org.springframework.stereotype.Service;
 
-import inci_dashboard.util.Estado;
+import es.uniovi.asw.e3b.util.Estado;
 
 @Service
 public class EstadoService {
