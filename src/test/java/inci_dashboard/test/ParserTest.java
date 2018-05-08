@@ -1,4 +1,4 @@
-package inci_dashboard.test.utils;
+package inci_dashboard.test;
 
 import static org.junit.Assert.*;
 
