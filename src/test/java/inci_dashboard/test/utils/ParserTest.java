@@ -29,7 +29,10 @@ public class ParserTest {
 				"}";
 		Incidence inci = ParserJsonToIncidence.JsonToIncidence(new JSONObject(js));
 		assertEquals(inci.getAgent().getEmail(),"paco@gmail.com");
+		assertEquals(inci.getAgent().getPassword(),"123456");
+		assertEquals(inci.getIncidenceName(),"Incidencia de prueba");
 		assertEquals(inci.getDescription(), "Descripción de la incidencia de prueba");
+		assertEquals(inci.getLocation(), "43.3582617,-5.8531647");
 	}
 
 }
