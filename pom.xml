@@ -32,6 +32,7 @@
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-bus-kafka</artifactId>
+			<version>1.5.10.RELEASE</version>
 		</dependency>
 
 		<dependency>
@@ -68,6 +69,7 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-thymeleaf</artifactId>
+			<version>1.5.10.RELEASE</version>
 		</dependency>
 
 		<dependency>
