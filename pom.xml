@@ -33,7 +33,7 @@
 		<argLine>-XX:MaxPermSize=512m</argLine>
 		<surefire.argLine>${argLine}</surefire.argLine>
 		<failsafe.argLine>${argLine}</failsafe.argLine>
-		<start-class>es.uniovi.asw.e3b.InciDashboardApplication</start-class>
+		<start-class>es.uniovi.asw.e3b.incidashboard_e3b.InciDashboardApplication</start-class>
 		<postgresql.version>9.1-901-1.jdbc4</postgresql.version>
 		<selenium-htmlunit-driver.version>2.52.0</selenium-htmlunit-driver.version>
 		<cucumber.version>2.3.0</cucumber.version>
