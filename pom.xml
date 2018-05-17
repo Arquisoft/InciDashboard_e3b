@@ -4,10 +4,18 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>es.uniovi.asw</groupId>
-	<artifactId>InciDashboard_e3b</artifactId>
+	<groupId>es.uniovi.asw.e3b</groupId>
+	<artifactId>incidashboard_e3b</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>jar</packaging>
 	<name>InciDashboard_e3b</name>
-	<version>0.0.1</version>
+	<description>Módulo de análisis y cuadro de mandos</description>
+	<url>https://github.com/Arquisoft/InciDashboard_e3b/</url>
+	<organization>
+		<name>Escuela de Ingeniería Informática de la Universidad de Oviedo</name>
+		<url>https://ingenieriainformatica.uniovi.es/</url>
+	</organization>
+
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
