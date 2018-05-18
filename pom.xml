@@ -54,6 +54,8 @@
 		<postgres.server.port>5432</postgres.server.port>
 		<postgres.user>postgres</postgres.user>
 		<postgres.password>changeit</postgres.password>
+		<zookeeper.docker.alias>zookeeper</zookeeper.docker.alias>
+		<zookeeper.server.port>2181</zookeeper.server.port>
 	</properties>
 
 	<dependencies>
@@ -200,6 +202,29 @@
 								</network>
 								<wait>
 									<log>^.*database system is ready to accept connections.*$</log>
+									<time>30000</time>
+								</wait>
+								<log>
+									<enabled>true</enabled>
+									<prefix>%a [%C] |</prefix>
+									<color>blue</color>
+								</log>
+							</run>
+						</image>
+						<image>
+							<alias>${zookeeper.docker.alias}</alias>
+							<name>wurstmeister/${zookeeper.docker.alias}</name>
+							<run>
+								<ports>
+									<port>${zookeeper.server.port}:${zookeeper.server.port}</port>
+								</ports>
+								<network>
+									<mode>custom</mode>
+									<name>${docker.backend.network.name}</name>
+									<alias>${zookeeper.docker.alias}</alias>
+								</network>
+								<wait>
+									<log>^.*binding to port .*/.*:${zookeeper.server.port}.*$</log>
 									<time>30000</time>
 								</wait>
 								<log>
