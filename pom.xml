@@ -62,6 +62,9 @@
 		<agents.docker.alias>agents_e3b</agents.docker.alias>
 		<agents.server.port>8090</agents.server.port>
 		<agents.url>http://${agents.docker.alias}:${agents.server.port}</agents.url>
+		<incimanager.docker.alias>incimanager_e3b</incimanager.docker.alias>
+		<incimanager.server.port>8091</incimanager.server.port>
+		<incimanager.url>http://${incimanager.docker.alias}:${incimanager.server.port}</incimanager.url>
 	</properties>
 
 	<dependencies>
@@ -298,6 +301,40 @@
 								</dependsOn>
 								<wait>
 									<url>http://${docker.host.address}:${agents.server.port}</url>
+									<time>90000</time>
+								</wait>
+								<log>
+									<enabled>true</enabled>
+									<prefix>%a [%C] |</prefix>
+									<color>cyan</color>
+								</log>
+							</run>
+						</image>
+						<image>
+							<alias>${incimanager.docker.alias}</alias>
+							<name>${docker.registry.address}/${incimanager.docker.alias}</name>
+							<run>
+								<ports>
+									<port>${incimanager.server.port}:${incimanager.server.port}</port>
+								</ports>
+								<network>
+									<mode>custom</mode>
+									<name>${docker.backend.network.name}</name>
+									<alias>${incimanager.docker.alias}</alias>
+								</network>
+								<volumes>
+									<bind>
+										<volume>/tmp</volume>
+									</bind>
+								</volumes>
+								<dependsOn>
+									<container>${postgres.docker.alias}</container>
+									<container>${zookeeper.docker.alias}</container>
+									<container>${kafka.docker.alias}</container>
+									<container>${agents.docker.alias}</container>
+								</dependsOn>
+								<wait>
+									<url>http://${docker.host.address}:${incimanager.server.port}</url>
 									<time>90000</time>
 								</wait>
 								<log>
