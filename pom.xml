@@ -46,10 +46,14 @@
 		<findbugs-maven-plugin.version>3.0.5</findbugs-maven-plugin.version>
 		<maven-pmd-plugin.version>3.9.0</maven-pmd-plugin.version>
 		<cobertura-maven-plugin.version>2.7</cobertura-maven-plugin.version>
-		
+
 		<docker.registry.address>arquisoft.ddns.net</docker.registry.address>
 		<docker.base.image>maven:3.5-jdk-8-alpine</docker.base.image>
 		<docker.backend.network.name>backend</docker.backend.network.name>
+		<postgres.docker.alias>postgres</postgres.docker.alias>
+		<postgres.server.port>5432</postgres.server.port>
+		<postgres.user>postgres</postgres.user>
+		<postgres.password>changeit</postgres.password>
 	</properties>
 
 	<dependencies>
@@ -178,6 +182,33 @@
 					<imagePullPolicy>IfNotPresent</imagePullPolicy>
 					<autoCreateCustomNetworks>true</autoCreateCustomNetworks>
 					<images>
+						<image>
+							<alias>${postgres.docker.alias}</alias>
+							<name>${postgres.docker.alias}:alpine</name>
+							<run>
+								<env>
+									<POSTGRES_USER>${postgres.user}</POSTGRES_USER>
+									<POSTGRES_PASSWORD>${postgres.password}</POSTGRES_PASSWORD>
+								</env>
+								<ports>
+									<port>${postgres.server.port}:${postgres.server.port}</port>
+								</ports>
+								<network>
+									<mode>custom</mode>
+									<name>${docker.backend.network.name}</name>
+									<alias>${postgres.docker.alias}</alias>
+								</network>
+								<wait>
+									<log>^.*database system is ready to accept connections.*$</log>
+									<time>30000</time>
+								</wait>
+								<log>
+									<enabled>true</enabled>
+									<prefix>%a [%C] |</prefix>
+									<color>blue</color>
+								</log>
+							</run>
+						</image>
 					</images>
 				</configuration>
 				<executions>
