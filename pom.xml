@@ -38,6 +38,7 @@
 		<selenium-htmlunit-driver.version>2.52.0</selenium-htmlunit-driver.version>
 		<cucumber.version>2.3.0</cucumber.version>
 		<cucumber-reporting.version>3.14.0</cucumber-reporting.version>
+		<docker-maven-plugin-fabric8.version>0.24.0</docker-maven-plugin-fabric8.version>
 		<jacoco-maven-plugin.version>0.8.0</jacoco-maven-plugin.version>
 		<maven-project-info-reports-plugin.version>2.9</maven-project-info-reports-plugin.version>
 		<maven-checkstyle-plugin.version>3.0.0</maven-checkstyle-plugin.version>
@@ -45,6 +46,10 @@
 		<findbugs-maven-plugin.version>3.0.5</findbugs-maven-plugin.version>
 		<maven-pmd-plugin.version>3.9.0</maven-pmd-plugin.version>
 		<cobertura-maven-plugin.version>2.7</cobertura-maven-plugin.version>
+		
+		<docker.registry.address>arquisoft.ddns.net</docker.registry.address>
+		<docker.base.image>maven:3.5-jdk-8-alpine</docker.base.image>
+		<docker.backend.network.name>backend</docker.backend.network.name>
 	</properties>
 
 	<dependencies>
@@ -162,6 +167,36 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<groupId>io.fabric8</groupId>
+				<artifactId>docker-maven-plugin</artifactId>
+				<version>${docker-maven-plugin-fabric8.version}</version>
+				<configuration>
+					<logDate>none</logDate>
+					<userColor>true</userColor>
+					<imagePullPolicy>IfNotPresent</imagePullPolicy>
+					<autoCreateCustomNetworks>true</autoCreateCustomNetworks>
+					<images>
+					</images>
+				</configuration>
+				<executions>
+					<execution>
+						<id>start</id>
+						<phase>pre-integration-test</phase>
+						<goals>
+							<goal>build</goal>
+							<goal>start</goal>
+						</goals>
+					</execution>
+					<execution>
+						<id>stop</id>
+						<phase>post-integration-test</phase>
+						<goals>
+							<goal>stop</goal>
+						</goals>
+					</execution>
+				</executions>
 			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
