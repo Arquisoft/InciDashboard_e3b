@@ -64,7 +64,8 @@
 		<agents.url>http://${agents.docker.alias}:${agents.server.port}</agents.url>
 		<incimanager.docker.alias>incimanager_e3b</incimanager.docker.alias>
 		<incimanager.server.port>8091</incimanager.server.port>
-		<incimanager.url>http://${incimanager.docker.alias}:${incimanager.server.port}</incimanager.url>
+		<incidashboard.docker.alias>incidashboard_e3b</incidashboard.docker.alias>
+		<incidashboard.server.port>8092</incidashboard.server.port>
 	</properties>
 
 	<dependencies>
@@ -335,6 +336,75 @@
 								</dependsOn>
 								<wait>
 									<url>http://${docker.host.address}:${incimanager.server.port}</url>
+									<time>90000</time>
+								</wait>
+								<log>
+									<enabled>true</enabled>
+									<prefix>%a [%C] |</prefix>
+									<color>cyan</color>
+								</log>
+							</run>
+						</image>
+						<image>
+							<alias>${incidashboard.docker.alias}</alias>
+							<name>${docker.registry.address}/${incidashboard.docker.alias}</name>
+							<build>
+								<from>${docker.base.image}</from>
+								<tags>
+									<tag>latest</tag>
+									<tag>${project.version}</tag>
+								</tags>
+								<assembly>
+									<inline>
+										<fileSets>
+											<fileSet>
+												<directory>${project.build.directory}</directory>
+												<includes>
+													<include>${project.artifactId}-${project.version}.${project.packaging}</include>
+												</includes>
+												<outputDirectory>usr/share/${project.artifactId}/</outputDirectory>
+											</fileSet>
+										</fileSets>
+									</inline>
+								</assembly>
+								<ports>
+									<port>${incidashboard.server.port}</port>
+								</ports>
+								<entryPoint>
+									<arg>/usr/bin/java</arg>
+									<arg>-Djava.security.egd=file:/dev/./urandom</arg>
+									<arg>-jar</arg>
+									<arg>/maven/usr/share/${project.artifactId}/${project.artifactId}-${project.version}.${project.packaging}</arg>
+									<arg>--spring.datasource.url=${spring.datasource.url}</arg>
+									<arg>--spring.datasource.username=${postgres.user}</arg>
+									<arg>--spring.datasource.password=${postgres.password}</arg>
+									<arg>--spring.cloud.stream.kafka.binder.brokers=${kafka.docker.alias}:${kafka.server.port}</arg>
+									<arg>--spring.cloud.stream.kafka.binder.zkNodes=${zookeeper.docker.alias}:${zookeeper.server.port}</arg>
+									<arg>--agents.url=${agents.url}</arg>
+								</entryPoint>
+							</build>
+							<run>
+								<ports>
+									<port>${incidashboard.server.port}:${incidashboard.server.port}</port>
+								</ports>
+								<network>
+									<mode>custom</mode>
+									<name>${docker.backend.network.name}</name>
+									<alias>${incidashboard.docker.alias}</alias>
+								</network>
+								<volumes>
+									<bind>
+										<volume>/tmp</volume>
+									</bind>
+								</volumes>
+								<dependsOn>
+									<container>${postgres.docker.alias}</container>
+									<container>${zookeeper.docker.alias}</container>
+									<container>${kafka.docker.alias}</container>
+									<container>${agents.docker.alias}</container>
+								</dependsOn>
+								<wait>
+									<url>http://${docker.host.address}:${incidashboard.server.port}</url>
 									<time>90000</time>
 								</wait>
 								<log>
