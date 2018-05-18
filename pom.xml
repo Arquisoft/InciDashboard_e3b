@@ -54,10 +54,14 @@
 		<postgres.server.port>5432</postgres.server.port>
 		<postgres.user>postgres</postgres.user>
 		<postgres.password>changeit</postgres.password>
+		<spring.datasource.url>jdbc:postgresql://${postgres.docker.alias}:${postgres.server.port}/postgres</spring.datasource.url>
 		<zookeeper.docker.alias>zookeeper</zookeeper.docker.alias>
 		<zookeeper.server.port>2181</zookeeper.server.port>
 		<kafka.docker.alias>kafka</kafka.docker.alias>
 		<kafka.server.port>9092</kafka.server.port>
+		<agents.docker.alias>agents_e3b</agents.docker.alias>
+		<agents.server.port>8090</agents.server.port>
+		<agents.url>http://${agents.docker.alias}:${agents.server.port}</agents.url>
 	</properties>
 
 	<dependencies>
@@ -269,6 +273,37 @@
 									<enabled>true</enabled>
 									<prefix>%a [%C] |</prefix>
 									<color>blue</color>
+								</log>
+							</run>
+						</image>
+						<image>
+							<alias>${agents.docker.alias}</alias>
+							<name>${docker.registry.address}/${agents.docker.alias}</name>
+							<run>
+								<volumes>
+									<bind>
+										<volume>/tmp</volume>
+									</bind>
+								</volumes>
+								<ports>
+									<port>${agents.server.port}:${agents.server.port}</port>
+								</ports>
+								<network>
+									<mode>custom</mode>
+									<name>${docker.backend.network.name}</name>
+									<alias>${agents.docker.alias}</alias>
+								</network>
+								<dependsOn>
+									<container>${postgres.docker.alias}</container>
+								</dependsOn>
+								<wait>
+									<url>http://${docker.host.address}:${agents.server.port}</url>
+									<time>90000</time>
+								</wait>
+								<log>
+									<enabled>true</enabled>
+									<prefix>%a [%C] |</prefix>
+									<color>cyan</color>
 								</log>
 							</run>
 						</image>
