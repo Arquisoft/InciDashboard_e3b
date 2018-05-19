@@ -64,7 +64,7 @@
 		<agents.url>http://${agents.docker.alias}:${agents.server.port}</agents.url>
 		<incimanager.docker.alias>incimanager_e3b</incimanager.docker.alias>
 		<incimanager.server.port>8091</incimanager.server.port>
-		<incidashboard.docker.alias>incidashboard_e3b</incidashboard.docker.alias>
+		<incidashboard.docker.alias>${project.artifactId}</incidashboard.docker.alias>
 		<incidashboard.server.port>8092</incidashboard.server.port>
 	</properties>
 
