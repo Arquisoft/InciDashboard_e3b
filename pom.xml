@@ -66,6 +66,8 @@
 		<incimanager.server.port>8091</incimanager.server.port>
 		<incidashboard.docker.alias>${project.artifactId}</incidashboard.docker.alias>
 		<incidashboard.server.port>8092</incidashboard.server.port>
+		
+		<maven.test.skip>true</maven.test.skip>
 	</properties>
 
 	<dependencies>
