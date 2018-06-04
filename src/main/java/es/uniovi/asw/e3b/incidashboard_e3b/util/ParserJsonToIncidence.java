@@ -67,14 +67,16 @@ public class ParserJsonToIncidence {
 		}
 		
 		Boolean cacheable = json.getBoolean("cacheable");
-		SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
-		Date expiration = new Date();
-		try {
-			expiration = formatter.parse(json.getString("expiration"));
-		} catch (JSONException e) {			
-			e.printStackTrace();
-		} catch (ParseException e) {
-			e.printStackTrace();
+		if(json.getString("expiration")!=NULL){
+			SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+			Date expiration = new Date();
+			try {
+				expiration = formatter.parse(json.getString("expiration"));
+			} catch (JSONException e) {			
+				e.printStackTrace();
+			} catch (ParseException e) {
+				e.printStackTrace();
+			}
 		}
 		Agent agent = new Agent(username,password,location,username,"ident",kind);
 		Incidence incidence = new Incidence(agent,incidenceName,descripcion,location,labels,comments,fields,status,expiration,cacheable,others,null);
