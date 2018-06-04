@@ -67,7 +67,7 @@ public class ParserJsonToIncidence {
 		}
 		
 		Boolean cacheable = json.getBoolean("cacheable");
-		Date expiration = NULL;
+		Date expiration = null;
 		if(json.has("expiration")){
 			SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
 			expiration = new Date();
