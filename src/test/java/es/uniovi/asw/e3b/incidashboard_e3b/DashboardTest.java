@@ -14,9 +14,9 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.htmlunit.HtmlUnitDriver;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.TestPropertySource;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import es.uniovi.asw.e3b.incidashboard_e3b.InciDashboardApplication;
 import es.uniovi.asw.e3b.incidashboard_e3b.po.PO_LoginView;
 import es.uniovi.asw.e3b.incidashboard_e3b.po.PO_NavView;
 import es.uniovi.asw.e3b.incidashboard_e3b.po.PO_View;
@@ -24,6 +24,13 @@ import es.uniovi.asw.e3b.incidashboard_e3b.po.PO_View;
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = {
 		InciDashboardApplication.class }, webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+@TestPropertySource(properties = { 
+		"spring.datasource.url = jdbc:h2:mem:test;MODE=PostgreSQL;DB_CLOSE_ON_EXIT=FALSE",
+		"spring.datasource.username=postgres", 
+		"spring.datasource.password=changeit",
+		"spring.jpa.hibernate.ddl-auto=create-drop", 
+		"spring.datasource.driverClassName=org.h2.Driver" 
+})
 public class DashboardTest {
 
 	private static final Logger logger = Logger.getLogger(DashboardTest.class);
