@@ -1,5 +1,8 @@
 package es.uniovi.asw.e3b.incidashboard_e3b;
 
+import java.nio.charset.Charset;
+import java.nio.charset.CharsetDecoder;
+import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
 import org.apache.log4j.Logger;
@@ -20,8 +23,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 import es.uniovi.asw.e3b.incidashboard_e3b.pos.PO_LoginView;
 import es.uniovi.asw.e3b.incidashboard_e3b.pos.PO_NavView;
 import es.uniovi.asw.e3b.incidashboard_e3b.pos.PO_View;
-
-
+import kafka.KafkaLocalServer;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = {
@@ -38,10 +40,49 @@ public class DashboardTest {
 	private static final Logger logger = Logger.getLogger(DashboardTest.class);
 
 	private static WebDriver driver;
-	@Value("${local.server.port:8090}")
+	@Value("${local.server.port:8092}")
 	private int port;
 	//	private StringBuffer verificationErrors = new StringBuffer(); // TODO: comento porque no se utiliza para nada... hasta que se utilice. Para evitar error de Codacy
 //	private int timeout = 9;
+	
+	private static KafkaLocalServer kafkaLocalServer;
+    private static final String DEFAULT_KAFKA_LOG_DIR = "/tmp/test/kafka_embedded";
+    private static final String TEST_TOPIC = "test_topic";
+    private static final int BROKER_ID = 0;
+    private static final int BROKER_PORT = 9092;
+    private static final String LOCALHOST_BROKER = String.format("localhost:%d", BROKER_PORT);
+
+    private static final String DEFAULT_ZOOKEEPER_LOG_DIR = "/tmp/test/zookeeper";
+    private static final int ZOOKEEPER_PORT = 2181;
+    private static final String ZOOKEEPER_HOST = String.format("localhost:%d", ZOOKEEPER_PORT);
+
+    private static final String groupId = "groupID";
+
+    private Charset charset = Charset.forName("UTF-8");
+    private CharsetDecoder decoder = charset.newDecoder();
+
+    @BeforeClass
+    public static void startKafka(){
+        Properties kafkaProperties;
+        Properties zkProperties;
+
+        try {
+            //load properties
+            kafkaProperties = getKafkaProperties(DEFAULT_KAFKA_LOG_DIR, BROKER_PORT, BROKER_ID);
+            zkProperties = getZookeeperProperties(ZOOKEEPER_PORT,DEFAULT_ZOOKEEPER_LOG_DIR);
+
+            //start kafkaLocalServer
+            kafkaLocalServer = new KafkaLocalServer(kafkaProperties, zkProperties);
+            Thread.sleep(5000);
+        } catch (Exception e){
+            e.printStackTrace(System.out);
+            e.printStackTrace(System.out);
+        }
+
+        //do other things
+}
+	
+	
 
 	public static WebDriver getDriver(String PathFirefox) {
 		// Firefox (Versi�n 46.0) sin geckodriver para Selenium 2.x.
@@ -87,5 +128,24 @@ public class DashboardTest {
 		PO_LoginView.fillForm(driver, "oper12@gmail.es", "123456");
 		// COmprobamos que entramos en la pagina privada de Alumno
 		PO_View.checkElement(driver, "text", "oper12@gmail.es");
+	}
+	
+	
+	 private static Properties getKafkaProperties(String logDir, int port, int brokerId) {
+	        Properties properties = new Properties();
+	        properties.put("port", port + "");
+	        properties.put("broker.id", brokerId + "");
+	        properties.put("log.dir", logDir);
+	        properties.put("zookeeper.connect", ZOOKEEPER_HOST);
+	        properties.put("default.replication.factor", "1");
+	        properties.put("delete.topic.enable", "true");
+	        return properties;
+	    }
+
+	    private static Properties getZookeeperProperties(int port, String zookeeperDir) {
+	        Properties properties = new Properties();
+	        properties.put("clientPort", port + "");
+	        properties.put("dataDir", zookeeperDir);
+	        return properties;
 	}
 }
