@@ -34,7 +34,7 @@ public class ParserJsonToIncidence {
 			labels.add((String) jlabels.get(i));
 		
 				Set<String> others = new HashSet<String>();
-		if(json.has("comments")){
+		if(json.has("others")){
 			JSONArray jothers = json.getJSONArray("others");
 			for(int i=0;i<jothers.length();i++)
 				others.add((String) jothers.get(i));				
