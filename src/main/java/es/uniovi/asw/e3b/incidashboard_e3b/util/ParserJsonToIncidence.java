@@ -33,18 +33,22 @@ public class ParserJsonToIncidence {
 		for(int i=0;i<jlabels.length();i++)
 			labels.add((String) jlabels.get(i));
 		
-		Set<String> others = new HashSet<String>();
-		JSONArray jothers = json.getJSONArray("others");
-		for(int i=0;i<jothers.length();i++)
-			others.add((String) jothers.get(i));				
+				Set<String> others = new HashSet<String>();
+		if(json.has("others")){
+			JSONArray jothers = json.getJSONArray("others");
+			for(int i=0;i<jothers.length();i++)
+				others.add((String) jothers.get(i));				
+		}
 		
 		Set<String> comments = new HashSet<String>();
-		JSONArray jcomments = json.getJSONArray("comments");
-		for(int i=0;i<jcomments.length();i++)
-			comments.add((String) jcomments.get(i));
+		if(json.has("comments")){
+			JSONArray jcomments = json.getJSONArray("comments");
+			for(int i=0;i<jcomments.length();i++)
+				comments.add((String) jcomments.get(i));
+		}
 		
 		HashMap<String, String> fields = new HashMap<String,String>();
-		JSONObject jfields = json.getJSONObject("fields");	
+		JSONObject jfields = json.getJSONObject("campos");
 		fields = toMap(jfields);	
 
 		
@@ -67,14 +71,17 @@ public class ParserJsonToIncidence {
 		}
 		
 		Boolean cacheable = json.getBoolean("cacheable");
-		SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
-		Date expiration = new Date();
-		try {
-			expiration = formatter.parse(json.getString("expiration"));
-		} catch (JSONException e) {			
-			e.printStackTrace();
-		} catch (ParseException e) {
-			e.printStackTrace();
+		Date expiration = null;
+		if(json.has("expiration")){
+			SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+			expiration = new Date();
+			try {
+				expiration = formatter.parse(json.getString("expiration"));
+			} catch (JSONException e) {			
+				e.printStackTrace();
+			} catch (ParseException e) {
+				e.printStackTrace();
+			}
 		}
 		Agent agent = new Agent(username,password,location,username,"ident",kind);
 		Incidence incidence = new Incidence(agent,incidenceName,descripcion,location,labels,comments,fields,status,expiration,cacheable,others,null);
