@@ -48,8 +48,10 @@ public class ParserJsonToIncidence {
 		}
 		
 		HashMap<String, String> fields = new HashMap<String,String>();
-		JSONObject jfields = json.getJSONObject("campos");
-		fields = toMap(jfields);	
+		if(json.has("campos")){
+			JSONObject jfields = json.getJSONObject("campos");
+			fields = toMap(jfields);
+		}
 
 		
 		Estado status = null;
