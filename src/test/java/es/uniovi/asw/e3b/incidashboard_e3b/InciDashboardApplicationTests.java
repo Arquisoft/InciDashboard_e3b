@@ -24,9 +24,9 @@ import es.uniovi.asw.e3b.incidashboard_e3b.po.PO_View;
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = {
 		InciDashboardApplication.class }, webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-public class DashboardTest {
+public class InciDashboardApplicationTests {
 
-	private static final Logger logger = Logger.getLogger(DashboardTest.class);
+	private static final Logger logger = Logger.getLogger(InciDashboardApplicationTests.class);
 
 	private static WebDriver driver;
 	@Value("${local.server.port:8090}")
@@ -73,10 +73,10 @@ public class DashboardTest {
 	@Test
 	public void testLogin() {
 		// Vamos al formulario de logueo.
-		PO_NavView.clickOption(driver, "login", "class", "btn btn-primary");
+		PO_NavView.clickOption(driver, "Login", "class", "btn btn-primary");
 		// Rellenamos el formulario
 		PO_LoginView.fillForm(driver, "oper12@gmail.es", "123456");
-		// COmprobamos que entramos en la pagina privada de Alumno
+		// COmprobamos que entramos en la pagina privada
 		PO_View.checkElement(driver, "text", "oper12@gmail.es");
 	}
 }
