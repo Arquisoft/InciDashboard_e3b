@@ -20,7 +20,6 @@ before_install:
   - sudo service postgresql stop
 
 install:
-  - pip install codecov --ignore-installed six
   - mvn clean install -DskipTests=true -Dmaven.javadoc.skip=true -Ddocker.skip=true -B -V
 
 before_script:
@@ -29,10 +28,11 @@ before_script:
   - sleep 3 # give xvfb some time to start
 
 script:
+  - "mvn cobertura:cobertura"
   - mvn install -B
 
 after_success:
-  - codecov
+  - bash <(curl -s https://codecov.io/bash)
 
 after_scrip:
   - mvn docker:stop
