@@ -20,7 +20,7 @@ before_install:
   - sudo service postgresql stop
 
 install:
-  - pip install codecov
+  - pip install codecov --ignore-installed six
   - mvn clean install -DskipTests=true -Dmaven.javadoc.skip=true -Ddocker.skip=true -B -V
 
 before_script:
