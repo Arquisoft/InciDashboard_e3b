@@ -1,4 +1,4 @@
-package es.uniovi.asw.e3b.incidashboard_e3b;
+package es.uniovi.asw.e3b.incidashboard_e3b.parser;
 
 import static org.junit.Assert.*;
 

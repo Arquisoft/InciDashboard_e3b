@@ -1,4 +1,4 @@
-package es.uniovi.asw.e3b.incidashboard_e3b.utils;
+package es.uniovi.asw.e3b.incidashboard_e3b.util;
 
 
 

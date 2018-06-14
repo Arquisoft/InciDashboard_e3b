@@ -1,4 +1,4 @@
-package es.uniovi.asw.e3b.incidashboard_e3b.po;
+package es.uniovi.asw.e3b.incidashboard_e3b.pos;
 
 import static org.junit.Assert.assertTrue;
 
@@ -7,7 +7,7 @@ import java.util.List;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-import es.uniovi.asw.e3b.incidashboard_e3b.utils.SeleniumUtils;
+import es.uniovi.asw.e3b.incidashboard_e3b.util.SeleniumUtils;
 
 public class PO_NavView extends PO_View {
 	/**

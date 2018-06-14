@@ -16,7 +16,7 @@ InciDashboard_e3b
 ### Requisitos para ejecutar el proyecto
 - [Apache Maven](https://maven.apache.org) (versión: >= 3.5).
 - [Apache Kafka](https://kafka.apache.org) (versión: >= 1.0).
-- [Hsqldb](http://hsqldb.org/) (version : 2.4.0).
+- [PostgreSQL](https://www.postgresql.org/) (version : 9.1-901-1.jdbc4 ).
 
 #### Inicio con Apache Kafka en MS-Windows
 
