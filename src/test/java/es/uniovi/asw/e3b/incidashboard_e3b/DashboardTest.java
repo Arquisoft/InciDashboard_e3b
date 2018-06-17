@@ -24,7 +24,6 @@ import es.uniovi.asw.e3b.incidashboard_e3b.pos.PO_LoginView;
 import es.uniovi.asw.e3b.incidashboard_e3b.pos.PO_NavView;
 import es.uniovi.asw.e3b.incidashboard_e3b.pos.PO_View;
 import kafka.KafkaLocalServer;
-
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = {
 		InciDashboardApplication.class }, webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
