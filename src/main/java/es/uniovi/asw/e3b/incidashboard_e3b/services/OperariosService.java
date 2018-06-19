@@ -2,8 +2,10 @@ package es.uniovi.asw.e3b.incidashboard_e3b.services;
 
 import es.uniovi.asw.e3b.incidashboard_e3b.entities.Incidence;
 import es.uniovi.asw.e3b.incidashboard_e3b.entities.Operario;
+import es.uniovi.asw.e3b.incidashboard_e3b.repositories.AgentsRepository;
 import es.uniovi.asw.e3b.incidashboard_e3b.repositories.IncidencesRepository;
 import es.uniovi.asw.e3b.incidashboard_e3b.repositories.OperariosRepository;
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -23,7 +25,12 @@ public class OperariosService {
 	private IncidencesRepository incidencesRepository;
 
 	@Autowired
+	private AgentsRepository agentsRepository;
+
+	@Autowired
 	private IncidenciasService incidenciasService;
+
+	private static final Logger logger = Logger.getLogger(OperariosService.class);
 
 	public void addOperador(Operario operador) {
 		operador.setPassword(bCryptPasswordEncoder.encode(operador.getPassword()));
@@ -55,14 +62,17 @@ public class OperariosService {
 				if (operarios.get(i).getIncidencias().size() < operarios.get(op).getIncidencias().size())
 					op = i;
 			}
+
+			agentsRepository.save(incidencia.getAgent());
+
 			incidencia.setOperario(operarios.get(op));
 			operarios.get(op).añadirIncidencia(incidencia);
-		}
-		// meter incidencia en base de datos
-//		incidenciasService.addIncidencia(incidencia);
-		incidencesRepository.save(incidencia);
-		operatorsRepository.save(operarios);
 
+			operatorsRepository.save(operarios);
+			incidencesRepository.save(incidencia); // meter incidencia en base de datos
+
+			logger.info("Incidencia: \"" + incidencia.getIncidenceName() + "\" asignada a: '" + incidencia.getOperario().getEmail() + "'");
+		}
 	}
 
 }
