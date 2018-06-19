@@ -1,17 +1,16 @@
 package es.uniovi.asw.e3b.incidashboard_e3b.services;
 
-import java.util.ArrayList;
-import java.util.List;
-
+import es.uniovi.asw.e3b.incidashboard_e3b.entities.Incidence;
+import es.uniovi.asw.e3b.incidashboard_e3b.entities.Operario;
+import es.uniovi.asw.e3b.incidashboard_e3b.repositories.IncidencesRepository;
+import es.uniovi.asw.e3b.incidashboard_e3b.util.Estado;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import es.uniovi.asw.e3b.incidashboard_e3b.entities.Incidence;
-import es.uniovi.asw.e3b.incidashboard_e3b.entities.Operario;
-import es.uniovi.asw.e3b.incidashboard_e3b.repositories.IncidencesRepository;
-import es.uniovi.asw.e3b.incidashboard_e3b.util.Estado;
+import java.util.ArrayList;
+import java.util.List;
 
 @Service
 public class IncidenciasService {
@@ -43,6 +42,8 @@ public class IncidenciasService {
 	public void addIncidencia(Incidence in){
 		incidencesRepository.save(in);
 	}
+
+
 	
 	@Transactional
 	@Modifying
