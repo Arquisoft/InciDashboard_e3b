@@ -1,4 +1,4 @@
-package es.uniovi.asw.e3b.incidashboard_e3b.po;
+package es.uniovi.asw.e3b.incidashboard_e3b.pos;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
