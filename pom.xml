@@ -115,10 +115,10 @@
 			<artifactId>spring-cloud-starter-bus-kafka</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>org.hsqldb</groupId>
-			<artifactId>hsqldb</artifactId>
-			<scope>runtime</scope>
-		</dependency>
+	      <groupId>postgresql</groupId>
+	      <artifactId>postgresql</artifactId>
+	      <version>${postgresql.version}</version>
+	    </dependency>
 		<dependency>
 			<groupId>org.json</groupId>
 			<artifactId>json</artifactId>
