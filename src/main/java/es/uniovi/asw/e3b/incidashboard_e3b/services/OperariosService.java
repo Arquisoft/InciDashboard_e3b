@@ -63,12 +63,11 @@ public class OperariosService {
 					op = i;
 			}
 
-			agentsRepository.save(incidencia.getAgent());
+			agentsRepository.save(incidencia.getAgent());	// para evitar un problema de hibernate: 'save the transient instance before flushing'
 
 			incidencia.setOperario(operarios.get(op));
 			operarios.get(op).añadirIncidencia(incidencia);
 
-			operatorsRepository.save(operarios);
 			incidencesRepository.save(incidencia); // meter incidencia en base de datos
 
 			logger.info("Incidencia: \"" + incidencia.getIncidenceName() + "\" asignada a: '" + incidencia.getOperario().getEmail() + "'");
