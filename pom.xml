@@ -90,6 +90,7 @@
 		<spring.cloud.stream.kafka.binder.zkNodes>${zookeeper.docker.alias}:${zookeeper.server.port}</spring.cloud.stream.kafka.binder.zkNodes>
 		<spring.cloud.stream.kafka.binder.brokers>${kafka.docker.alias}:${kafka.server.port}</spring.cloud.stream.kafka.binder.brokers>
 		<kafka.topic>${kafka.server.topic}</kafka.topic>
+		<agents.server.url>http://${agents.docker.alias}:${agents.server.port}</agents.server.url>
 		<spring.thymeleaf.mode>LEGACYHTML5</spring.thymeleaf.mode>
 
 		<maven.test.skip>true</maven.test.skip>
@@ -372,6 +373,7 @@
 									<SPRING_CLOUD_STREAM.KAFKA_BINDER_ZKNODES>${spring.cloud.stream.kafka.binder.zkNodes}</SPRING_CLOUD_STREAM.KAFKA_BINDER_ZKNODES>
 									<SPRING_CLOUD_STREAM.KAFKA_BINDER_BROKERS>${spring.cloud.stream.kafka.binder.brokers}</SPRING_CLOUD_STREAM.KAFKA_BINDER_BROKERS>
 									<KAFKA_TOPICS>${kafka.server.topic}</KAFKA_TOPICS>
+									<AGENTS_SERVER_URL>${agents.server.url}</AGENTS_SERVER_URL>
 								</env>
 								<ports>
 									<port>${incimanager.server.port}:${incimanager.server.port}</port>
@@ -447,6 +449,7 @@
 									<SPRING_CLOUD_STREAM_KAFKA_BINDER_ZKNODES>${spring.cloud.stream.kafka.binder.zkNodes}</SPRING_CLOUD_STREAM_KAFKA_BINDER_ZKNODES>
 									<SPRING_CLOUD_STREAM_KAFKA_BINDER_BROKERS>${spring.cloud.stream.kafka.binder.brokers}</SPRING_CLOUD_STREAM_KAFKA_BINDER_BROKERS>
 									<KAFKA_TOPICS>${kafka.server.topic}</KAFKA_TOPICS>
+									<AGENTS_SERVER_URL>${agents.server.url}</AGENTS_SERVER_URL>
 									<SPRING_THYMELEAF_MODE>${spring.thymeleaf.mode}</SPRING_THYMELEAF_MODE>
 								</env>
 								<ports>
