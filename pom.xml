@@ -329,7 +329,7 @@
 									<SPRING_DATASOURCE_PASSWORD>${spring.datasource.password}</SPRING_DATASOURCE_PASSWORD>
 									<SPRING_DATASOURCE_DRIVERCLASSNAME>${spring.datasource.driverClassName}</SPRING_DATASOURCE_DRIVERCLASSNAME>
 									<SPRING_JPA_DATABASE_PLATFORM>${spring.jpa.database-platform}</SPRING_JPA_DATABASE_PLATFORM>
-									<SPRING_JPA_HIBERNATE_DDL-AUTO>${spring.jpa.hibernate.ddl-auto}</SPRING_JPA_HIBERNATE_DDL-AUTO>
+									<SPRING_JPA_HIBERNATE_DDL_AUTO>${spring.jpa.hibernate.ddl-auto}</SPRING_JPA_HIBERNATE_DDL_AUTO>
 									<CSV_FILEPATHNAME>${agents.cvs.filepathname}</CSV_FILEPATHNAME>
 								</env>
 								<ports>
@@ -370,10 +370,10 @@
 									<SPRING_DATASOURCE_PASSWORD>${spring.datasource.password}</SPRING_DATASOURCE_PASSWORD>
 									<SPRING_DATASOURCE_DRIVERCLASSNAME>${spring.datasource.driverClassName}</SPRING_DATASOURCE_DRIVERCLASSNAME>
 									<SPRING_JPA_DATABASE_PLATFORM>${spring.jpa.database-platform}</SPRING_JPA_DATABASE_PLATFORM>
-									<SPRING_JPA_HIBERNATE_DDL-AUTO>${spring.jpa.hibernate.ddl-auto}</SPRING_JPA_HIBERNATE_DDL-AUTO>
-									<SPRING_CLOUD_STREAM.KAFKA_BINDER_ZKNODES>${spring.cloud.stream.kafka.binder.zkNodes}</SPRING_CLOUD_STREAM.KAFKA_BINDER_ZKNODES>
-									<SPRING_CLOUD_STREAM.KAFKA_BINDER_BROKERS>${spring.cloud.stream.kafka.binder.brokers}</SPRING_CLOUD_STREAM.KAFKA_BINDER_BROKERS>
-									<KAFKA_TOPICS>${kafka.server.topic}</KAFKA_TOPICS>
+									<SPRING_JPA_HIBERNATE_DDL_AUTO>${spring.jpa.hibernate.ddl-auto}</SPRING_JPA_HIBERNATE_DDL_AUTO>
+									<SPRING_CLOUD_STREAM_KAFKA_BINDER_ZKNODES>${spring.cloud.stream.kafka.binder.zkNodes}</SPRING_CLOUD_STREAM_KAFKA_BINDER_ZKNODES>
+									<SPRING_CLOUD_STREAM_KAFKA_BINDER_BROKERS>${spring.cloud.stream.kafka.binder.brokers}</SPRING_CLOUD_STREAM_KAFKA_BINDER_BROKERS>
+									<KAFKA_TOPIC>${kafka.topic}</KAFKA_TOPIC>
 									<AGENTS_SERVER_URL>${agents.server.url}</AGENTS_SERVER_URL>
 								</env>
 								<ports>
@@ -446,10 +446,10 @@
 									<SPRING_DATASOURCE_PASSWORD>${spring.datasource.password}</SPRING_DATASOURCE_PASSWORD>
 									<SPRING_DATASOURCE_DRIVERCLASSNAME>${spring.datasource.driverClassName}</SPRING_DATASOURCE_DRIVERCLASSNAME>
 									<SPRING_JPA_DATABASE_PLATFORM>${spring.jpa.database-platform}</SPRING_JPA_DATABASE_PLATFORM>
-									<SPRING_JPA_HIBERNATE_DDL-AUTO>${spring.jpa.hibernate.ddl-auto}</SPRING_JPA_HIBERNATE_DDL-AUTO>
+									<SPRING_JPA_HIBERNATE_DDL_AUTO>${spring.jpa.hibernate.ddl-auto}</SPRING_JPA_HIBERNATE_DDL_AUTO>
 									<SPRING_CLOUD_STREAM_KAFKA_BINDER_ZKNODES>${spring.cloud.stream.kafka.binder.zkNodes}</SPRING_CLOUD_STREAM_KAFKA_BINDER_ZKNODES>
 									<SPRING_CLOUD_STREAM_KAFKA_BINDER_BROKERS>${spring.cloud.stream.kafka.binder.brokers}</SPRING_CLOUD_STREAM_KAFKA_BINDER_BROKERS>
-									<KAFKA_TOPICS>${kafka.server.topic}</KAFKA_TOPICS>
+									<KAFKA_TOPIC>${kafka.topic}</KAFKA_TOPIC>
 									<AGENTS_SERVER_URL>${agents.server.url}</AGENTS_SERVER_URL>
 									<SPRING_THYMELEAF_MODE>${spring.thymeleaf.mode}</SPRING_THYMELEAF_MODE>
 								</env>
