@@ -289,6 +289,7 @@
 									<KAFKA_LISTENERS>PLAINTEXT://:${kafka.server.port}</KAFKA_LISTENERS>
 									<KAFKA_ADVERTISED_LISTENERS>PLAINTEXT://${kafka.docker.alias}:${kafka.server.port}</KAFKA_ADVERTISED_LISTENERS>
 									<KAFKA_ZOOKEEPER_CONNECT>${zookeeper.docker.alias}:${zookeeper.server.port}</KAFKA_ZOOKEEPER_CONNECT>
+									<KAFKA_CREATE_TOPICS>${kafka.server.topic}:1:1</KAFKA_CREATE_TOPICS>
 								</env>
 								<ports>
 									<port>${kafka.server.port}:${kafka.server.port}</port>
