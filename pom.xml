@@ -141,10 +141,10 @@
 			<artifactId>spring-cloud-starter-bus-kafka</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>postgresql</groupId>
-			<artifactId>postgresql</artifactId>
-			<version>${postgresql.version}</version>
-		</dependency>
+	      <groupId>postgresql</groupId>
+	      <artifactId>postgresql</artifactId>
+	      <version>${postgresql.version}</version>
+	    </dependency>
 		<dependency>
 			<groupId>org.json</groupId>
 			<artifactId>json</artifactId>

@@ -1,17 +1,12 @@
 package es.uniovi.asw.e3b.incidashboard_e3b.entities;
 
+import es.uniovi.asw.e3b.incidashboard_e3b.util.Estado;
+
+import javax.persistence.*;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Set;
 
-import javax.persistence.ElementCollection;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
-
-import es.uniovi.asw.e3b.incidashboard_e3b.util.Estado;
 
 @Entity
 @Table(name = "TIncidences")

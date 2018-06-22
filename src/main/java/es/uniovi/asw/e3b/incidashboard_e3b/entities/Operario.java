@@ -1,18 +1,11 @@
 package es.uniovi.asw.e3b.incidashboard_e3b.entities;
 
+import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
-
 @Entity
-@Table(name = "TOperarios") 
+@Table(name = "TOperarios")
 public class Operario {
 
 	@Id
@@ -26,7 +19,7 @@ public class Operario {
 	
 	private String role;
 	
-	@OneToMany(mappedBy = "operario",cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "operario",cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	private Set<Incidence> incidencias = new HashSet<>();
 	
 	Operario() {
