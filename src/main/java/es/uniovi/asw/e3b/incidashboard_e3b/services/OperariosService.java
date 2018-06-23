@@ -62,7 +62,7 @@ public class OperariosService {
 				if (operarios.get(i).getIncidencias().size() < operarios.get(op).getIncidencias().size())
 					op = i;
 			}
-			Agente agente = agentsRepository.findByEmail(incidencia.getAgente().getEmail());
+			Agent agente = agentsRepository.findByEmail(incidencia.getAgente().getEmail());
 			if(agente!=null){
 				incidencia.setAgente(agente);
 				agentsRepository.save(incidencia.getAgent());	// para evitar un problema de hibernate: 'save the transient instance before flushing'
