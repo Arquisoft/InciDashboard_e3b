@@ -9,6 +9,7 @@ import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
+import es.uniovi.asw.e3b.incidashboard_e3b.entities.Agent;
 
 import java.util.List;
 
@@ -62,7 +63,7 @@ public class OperariosService {
 				if (operarios.get(i).getIncidencias().size() < operarios.get(op).getIncidencias().size())
 					op = i;
 			}
-			Agent agente = agentsRepository.findByEmail(incidencia.getAgente().getEmail());
+			Agent agente = agentsRepository.findByEmail(incidencia.getAgent().getEmail());
 			if(agente!=null){
 				incidencia.setAgente(agente);
 				agentsRepository.save(incidencia.getAgent());	// para evitar un problema de hibernate: 'save the transient instance before flushing'
