@@ -15,7 +15,6 @@
 				<div class="col-md-3">
 					<p>Incidencia número: <span class="btn btn-secondary" th:text="${incidencia.id}">12</span></p>
 					<p>Estado: <span class="btn btn-warning" th:text="${incidencia.status}">ABIERTA</span></p>
-					<p>Operario asignado: <span th:text="${incidencia.operario}">Benjamín</span>.</p>
 					<p>Localización: <span th:text="${incidencia.location}">43.6735, 58.2452</span></p>
 					<p>Fecha de caducidad: <span th:text="${incidencia.expiration}">ninguna</span>.</p>
 					<p>Etiquetas:</p>
@@ -23,7 +22,10 @@
 						<li th:each="label : ${incidencia.labels}"><span th:text="${label}">gotera</span></li>
 					</ul>
 				</div>
-				<div class="col-md-8">
+				<div class="col-md-5">
+                    <h2>Nombre: <span th:text="${incidencia.incidenceName}">Gotera en un techo</span></h2>
+                    <p th:text="${incidencia.description}">Descripción: Debido a una rotura de cañería</p>
+                    <hr />
 
 					<form class="form-horizontal" method="post" th:action="@{/incidencias/update/{id}(id=${incidencia.id})}">
 						<div class="form-group">
@@ -49,10 +51,7 @@
 						</div>
 					</form>
 
-					<h2>Nombre: <span th:text="${incidencia.incidenceName}">Gotera en un techo</span></h2>
-					<p th:text="${incidencia.description}">Descripción: Debido a una rotura de cañería</p>
-					<hr />
-					<h4>Comentarios:</h4>
+					<h4>Añadir comentarios:</h4>
 					<ul>
 						<li th:each="comment: ${incidencia.comments}"><span th:text="${comment}">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ultrices ligula vel nisi ultricies
                         gravida. Pellentesque id scelerisque diam, euismod dictum metus.</span>
@@ -64,12 +63,12 @@
 						<li th:each="value : ${incidencia.others}"><span th:text="${value}">casa muy vieja</span></li>
 					</ul>
 				</div>
+                <div class="col-md-3">
+                    <p>Mapa</p>
+
+                    <div id="map" style="width: 400px; height: 400px;"></div>
+                </div>
 			</div>
-
-		<p>Mapa</p>
-
-		<div id="map" style="width: 400px; height: 400px;"></div>
-
 		</div>
 	</div><!-- fin super wrapper-->
 
