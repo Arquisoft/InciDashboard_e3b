@@ -17,9 +17,9 @@ public class Agent {
 	private String nombre;
 	private String password;
 	private String location;
-	@Column(unique = true)
+	
 	private String email;
-	@Column(unique = true)
+	
 	private String ident;   // USUARIO, dni, nif o lo que sea que identifique al agente
 	private String kind;    // "Person","Entity", "Sensor"
 	
