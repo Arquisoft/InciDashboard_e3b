@@ -3,21 +3,24 @@
 <head th:replace="fragments/head" />
 <body>
 	<nav th:replace="fragments/navbar" />
-	<div class="container" style="text-align: center">
-		<h2>InciDashBoard</h2>
-		
-				
-		<div sec:authorize="isAuthenticated()">
-			<p>Bienvenido</p>
-			<p>Usuario Autenticado como : <span
-				th:text="${email}" th:inline="text">
+	<div class="super-wrapper">
+		<div class="clean-wrapper">
+			<div style="text-align: center">
+				<h2>InciDashBoard</h2>
+
+
+				<div sec:authorize="isAuthenticated()">
+					<p>Bienvenido</p>
+					<p>Usuario Autenticado como : <span
+							th:text="${email}" th:inline="text">
 				</span></p>
-			</ul>
-		
+					</ul>
+
+				</div>
+
+
+			</div>
 		</div>
-		
-		
 	</div>
-	<footer th:replace="fragments/footer" />
 </body>
 </html>

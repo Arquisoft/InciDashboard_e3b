@@ -4,8 +4,9 @@
 <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
 </head>
 <body>
-	<nav th:replace="fragments/nav" />
-	<div class="container">
+	<nav th:replace="fragments/navbar" />
+	<div class="super-wrapper">
+		<div class="clean-wrapper">
 		<h1>Incidencia</h1>
 		<ul>
 			<li>Nombre de la incidencia: <i
@@ -46,47 +47,44 @@
 		</div>
 		<p>Mapa</p>
 
-
 		<div id="map" style="width: 400px; height: 400px;"></div>
 
+		</div>
+	</div><!-- fin super wrapper-->
 
-		<script th:inline="javascript">
-    /*<![CDATA[*/
-			"use strict";
-			
-			var mapa;
-    function iniciar(){
-        navigator.geolocation.getCurrentPosition(mostrar,errores);
-    }
-    function mostrar(posicion){
-    	var cadena=[[${incidencia.location}]].split(",");
-		var latitud=parseFloat(cadena[0]);
-		var longitud=parseFloat(cadena[1]);
-        var ubicacion=new google.maps.LatLng(latitud, longitud);
-        var mapaOpciones ={
-            zoom:2,
-            center: ubicacion,
-            mapTypeId:  google.maps.MapTypeId.TERRAIN
-        };
-    
-        mapa= new google.maps.Map(document.getElementById('map'), mapaOpciones);
-        var marcador = new google.maps.Marker({
-            position: ubicacion,
-            map:mapa
-        });
-        marcador.setMap(mapa);
-    }
-    function errores(error){
-        alert('Error: '+error.code+' '+error.message);
-    }
-    iniciar();
-     
-		/*]]>*/
+	<script th:inline="javascript">
+        /*<![CDATA[*/
+        "use strict";
+
+        var mapa;
+        function iniciar(){
+            navigator.geolocation.getCurrentPosition(mostrar,errores);
+        }
+        function mostrar(posicion){
+            var cadena=[[${incidencia.location}]].split(",");
+            var latitud=parseFloat(cadena[0]);
+            var longitud=parseFloat(cadena[1]);
+            var ubicacion=new google.maps.LatLng(latitud, longitud);
+            var mapaOpciones ={
+                zoom:2,
+                center: ubicacion,
+                mapTypeId:  google.maps.MapTypeId.TERRAIN
+            };
+
+            mapa= new google.maps.Map(document.getElementById('map'), mapaOpciones);
+            var marcador = new google.maps.Marker({
+                position: ubicacion,
+                map:mapa
+            });
+            marcador.setMap(mapa);
+        }
+        function errores(error){
+            alert('Error: '+error.code+' '+error.message);
+        }
+        iniciar();
+        /*]]>*/
 	</script>
-		<script
-			src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCRXGSkiOeVhjBkV0XKN5pSC8KVzbUhfQo">
-        </script>
-	</div>
-</body>
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCRXGSkiOeVhjBkV0XKN5pSC8KVzbUhfQo"> </script>
 
+</body>
 </html>
