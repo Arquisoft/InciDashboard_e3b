@@ -31,20 +31,18 @@
 							<td th:text="${incidencia.agent.nombre}">Nombre del agente</td>
 							<td th:text="${incidencia.description}">Descripcion de la incidencia</td>
 							<td th:text="${incidencia.location}">Localizacion de la incidencia</td>
-							<td><span th:each="label : ${incidencia.labels}"> <span
-									th:text="${label}">Labels incidencia</span>,
-							</span></td>
+							<td>
+								<span th:each="label : ${incidencia.labels}">
+									<span th:text="${label}">Labels incidencia</span>,
+								</span>
+							</td>
 						</tr>
 					</tbody>
 				</table>
 			</div>
-			<p style="text-align: center; color: blue">(*) Las incidencias que
-				se encuentran contempladas como peligrosas se ven marcadas con un '*'
-				delante del nombre</p>
+            <p style="text-align: center;">(*) Las incidencias que se encuentran contempladas como peligrosas se ven marcadas con un '<span style="color:red;">*</span>' delante del nombre</p>
 		</div><!-- fin clean-wrapper -->
 	</div>
-
-	<footer th:replace="fragments/footer" />
 	
 	<script src="/js/actualizarIncidencias.js"></script>
 </body>
