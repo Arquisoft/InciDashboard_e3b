@@ -39,7 +39,7 @@
 						</div>
 						<br>
 						<div class="form-group">
-							<label class="control-label col-sm-2" for="comentario">Comentario:</label>
+							<label class="control-label col-sm-2" for="comentario">Añadir comentario:</label>
 							<div class="col-sm-10">
 								<textarea rows="5" cols="70" class="form-control" name="comentario"></textarea>
 							</div>
@@ -51,7 +51,7 @@
 						</div>
 					</form>
 
-					<h4>Añadir comentarios:</h4>
+					<h4>Comentarios:</h4>
 					<ul>
 						<li th:each="comment: ${incidencia.comments}"><span th:text="${comment}">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ultrices ligula vel nisi ultricies
                         gravida. Pellentesque id scelerisque diam, euismod dictum metus.</span>
