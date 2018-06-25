@@ -20,7 +20,7 @@ before_install:
   - sudo service postgresql stop
 
 install:
-  - mvn clean install -DskipTests=false -Dmaven.javadoc.skip=true -Ddocker.skip=true -B -V
+  - mvn clean install -DskipTests=true -Dmaven.javadoc.skip=true -Ddocker.skip=true -B -V
 
 before_script:
   - "export DISPLAY=:99.0"
