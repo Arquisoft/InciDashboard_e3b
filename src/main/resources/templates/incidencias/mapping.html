@@ -16,7 +16,7 @@
 					<p>Incidencia número: <span class="btn btn-secondary" th:text="${incidencia.id}">12</span></p>
 					<p>Estado: <span class="btn btn-warning" th:text="${incidencia.status}">ABIERTA</span></p>
 					<p>Localización: <span th:text="${incidencia.location}">43.6735, 58.2452</span></p>
-					<p>Fecha de caducidad: <span th:text="${incidencia.expiration}">ninguna</span>.</p>
+					<p  th:if="${incidencia.expiration != null }">Fecha de caducidad: <span th:text="${incidencia.expiration}">ninguna</span>.</p>
 					<p>Etiquetas:</p>
 					<ul>
 						<li th:each="label : ${incidencia.labels}"><span th:text="${label}">gotera</span></li>
@@ -29,7 +29,7 @@
 
 					<form class="form-horizontal" method="post" th:action="@{/incidencias/update/{id}(id=${incidencia.id})}">
 						<div class="form-group">
-							<label class="control-label col-sm-2" for=estado">Estado:</label>
+							<label class="control-label col-sm-10" for=estado">Estado:</label>
 							<div class="col-sm-10">
 								<select id="estado" class="form-control" name="estado">
 									<option th:each="estado : ${estados}" th:value="${estado}"
