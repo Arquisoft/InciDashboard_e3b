@@ -2,50 +2,50 @@
 <html lang="es">
 <head th:replace="fragments/head" />
 <body>
-	<!-- Barra de Navegaci�n superior -->
+	<!-- Barra de Navegación superior -->
 	<nav th:replace="fragments/navbar" />
-	<div class="container">
-		<h2>Incidencias</h2>
-		<p>Mis incidencias:</p>
-		<span th:text="${errorMsg}" style="color: red"></span>
-		<div class="table-responsive">
-			<table class="table table-hover" th:fragment="tableIncidencias"
-				id="tableIncidencias">
-				<thead>
-					<tr>
-						<th>Estado incidencia</th>
-						<th>Nombre incidencia</th>
-						<th>Agente</th> 						
-						<th>Descripcion incidencia</th>
-						<th>Localizacion incidencia</th>						
-						 <th>Etiquetas incidencia</th>
-						<th class="col-md-1"></th>
-						<th class="col-md-1"></th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr th:each="incidencia : ${incidenciasList}">
-						<td th:text="${incidencia.status}">Estado de la incidencia</td>
-						<td><span th:if="${incidencia.isPeligrosa()}"
-							style="color: red">*</span> <a
-							th:text="${incidencia.incidenceName}"
-							th:href="@{/incidencias/locationOf/{id}(id=${incidencia.id})}">Nombre
-								de la incidencia</a></td>
-						<td th:text="${incidencia.agent.nombre}">Nombre del agente</td>		
-						<td th:text="${incidencia.description}">Descripcion de la incidencia</td>
-						<td th:text="${incidencia.location}">Localizacion de la incidencia</td>
-						<td><span th:each="label : ${incidencia.labels}"> <span
-								th:text="${label}">Labels incidencia</span>,
-						</span></td>
-					</tr>
-				</tbody>
-			</table>			
-		</div>
+	<div class="super-wrapper">
+		<div class="clean-wrapper">
+			<h2>Incidencias <span th:if="${esPeligrosa}" th:text="${esPeligrosa}"></span></h2>
+
+			<span th:text="${errorMsg}" style="color: red"></span>
+			<div class="table-responsive">
+				<table class="table table-hover" th:fragment="tableIncidencias" id="tableIncidencias">
+					<thead>
+						<tr>
+							<th>Estado</th>
+							<th>Nombre</th>
+                            <th>Descripción</th>
+                            <th>Agente</th>
+							<th>Localización</th>
+                            <th>Etiquetas</th>
+                            <th></th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr th:each="incidencia : ${incidenciasList}">
+							<td th:text="${incidencia.status}">Estado de la incidencia</td>
+							<td>
+                                <span th:if="${incidencia.isPeligrosa()}" style="color: red">*</span>
+                                <a th:text="${incidencia.incidenceName}"
+                                   th:href="@{/incidencias/locationOf/{id}(id=${incidencia.id})}">Nombre de la incidencia</a>
+                            </td>
+                            <td th:text="${incidencia.description}">Descripcion de la incidencia</td>
+                            <td th:text="${incidencia.agent.nombre}">Nombre del agente</td>
+							<td th:text="${incidencia.location}">Localizacion de la incidencia</td>
+							<td>
+								<span th:each="label : ${incidencia.labels}">
+									<span th:text="${label}">Labels incidencia</span>,
+								</span>
+							</td>
+                            <td><a th:href="@{/incidencias/locationOf/{id}(id=${incidencia.id})}" class="btn btn-primary">Ver incidencia</a></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+            <p style="text-align: center;">(*) Las incidencias que se encuentran contempladas como peligrosas se ven marcadas con un '<span style="color:red;">*</span>' delante del nombre</p>
+		</div><!-- fin clean-wrapper -->
 	</div>
-	<p style="text-align: center; color: blue">(*) Las incidencias que
-		se encuentran contempladas como peligrosas se ven marcadas con un '*'
-		delante del nombre</p>
-	<footer th:replace="fragments/footer" />
 	
 	<script src="/js/actualizarIncidencias.js"></script>
 </body>

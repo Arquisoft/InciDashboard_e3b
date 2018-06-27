@@ -47,6 +47,7 @@ public class IncidenciasController {
 		Operario operario = operariosService.getOperarioByEmail(email);
 		List<Incidence> incidencias = incidenciasService.getIncidenciasPeligrosasForOperario(operario);
 		model.addAttribute("incidenciasList", incidencias);
+		model.addAttribute("esPeligrosa","peligrosas");
 		return "incidencias/listaIncidencias";
 	}
 
