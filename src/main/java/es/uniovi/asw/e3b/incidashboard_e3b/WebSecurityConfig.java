@@ -31,6 +31,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 				.antMatchers("/incidencias/list").authenticated()
 				.antMatchers("/incidencias/listPeligrosas").authenticated()
 				.antMatchers("/incidencias/locationOf/*").authenticated()
+				.anyRequest().authenticated()
 				.and().formLogin()
 				.loginPage("/login")
 				.permitAll()
