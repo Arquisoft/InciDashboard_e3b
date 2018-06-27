@@ -12,7 +12,7 @@ public class HomeController {
 	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String index(Model model) {
-		return "login";
+		return "redirect:/login";
 	}
 
 	@RequestMapping(value = "/login", method = RequestMethod.GET)

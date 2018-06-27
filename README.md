@@ -4,8 +4,14 @@
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/20f4862789f44608a8d6781dcacfda57)](https://www.codacy.com/app/UO252010/InciDashboard_e3b?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=Arquisoft/InciDashboard_e3b&amp;utm_campaign=Badge_Grade)
 [![Gitter](https://badges.gitter.im/Arquisoft/InciDashboard_e3b.svg)](https://gitter.im/inciDashboard_e3b/Lobby?utm_source=share-link&utm_medium=link&utm_campaign=share-link)
 
-Captura de pantalla de la página de inicio ([ver más sobre el diseño web en esta wiki](https://github.com/Arquisoft/Inci_e3b_modules/wiki/Interfaz-de-usuario---capturas-de-pantalla)):
-![incidashboard_captura0](https://user-images.githubusercontent.com/17082987/41882290-6de0800e-78e8-11e8-9bac-be71babcd35b.PNG)
+
+InciDashboard_e3b
+# Autores 2017-2018
++ Diego Álvarez Guinarte (UO251682)
++ Manuel Junco Diez (UO252010)
++ Ivan Suarez Castiñeiras (UO244730)
++ Pablo Gonzalez Martinez (UO245699)
+
 
 ### Requisitos para ejecutar el proyecto
 - [Apache Maven](https://maven.apache.org) (versión: >= 3.5).
@@ -52,10 +58,3 @@ mvn spring-boot:run
 |Agent1                 |  agent121223221@gmail.com |  Ag111223221    | Person  |
 |Agent2                 |  agent221223221@gmail.com |  Ag221223221    | Sensor  |
 |Agent3                 |  agent321223221@gmail.com |  Ag331223221    | Entity  |
-
-
-# Autores 2017-2018
-+ Diego Álvarez Guinarte (UO251682)
-+ Manuel Junco Diez (UO252010)
-+ Ivan Suarez Castiñeiras (UO244730)
-+ Pablo Gonzalez Martinez (UO245699)

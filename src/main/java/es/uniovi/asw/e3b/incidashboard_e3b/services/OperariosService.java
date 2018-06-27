@@ -64,15 +64,12 @@ public class OperariosService {
 			}
 
 			agentsRepository.save(incidencia.getAgent());	// para evitar un problema de hibernate: 'save the transient instance before flushing'
-			assert(agentsRepository.exists(incidencia.getAgent().getId()));
-			
+
 			incidencia.setOperario(operarios.get(op));
 			operarios.get(op).añadirIncidencia(incidencia);
 
 			incidencesRepository.save(incidencia); // meter incidencia en base de datos
-			assert(incidencesRepository.exists(incidencia.getId())); // tiene q estar si o si
-			
-			
+
 			logger.info("Incidencia: \"" + incidencia.getIncidenceName() + "\" asignada a: '" + incidencia.getOperario().getEmail() + "'");
 		}
 	}
