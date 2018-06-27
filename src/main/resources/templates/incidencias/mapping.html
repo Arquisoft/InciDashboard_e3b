@@ -5,88 +5,106 @@
 </head>
 <body>
 	<nav th:replace="fragments/navbar" />
-	<div class="container">
-		<h1>Incidencia</h1>
-		<ul>
-			<li>Nombre de la incidencia: <i
-				th:text="${incidencia.incidenceName}"></i>
-			</li>
-			<li>Descripcion: <i th:text="${incidencia.description}"></i>
-			</li>
-			<li>Localizacion: <i th:text="${incidencia.location}"></i>
-			</li>
-		</ul>
-		<div class="container-gestor">
-			<h2>Gestionar Incidencia</h2>
-			
-			<form class="form-horizontal" method="post" th:action="@{/incidencias/update/{id}(id=${incidencia.id})}">
-				<div class="form-group">
-					<label class="control-label col-sm-2" for=estado">Estado:</label>
-					<div class="col-sm-10">
-						<select id="estado" class="form-control" name="estado">
-							<option th:each="estado : ${estados}" th:value="${estado}"
-								th:text="${estado}"></option>
-						</select>
-					</div>
-				</div>
-				<br>
-				<div class="form-group">
-					<label class="control-label col-sm-2" for="comentario">Comentario:</label>
-					<div class="col-sm-10">
-						<textarea rows="5" cols="70" class="form-control" name="comentario"></textarea>
-					</div>
-				</div>
-				<div class="form-group">
-				<div class="col-sm-offset-2 col-sm-10">
-					<button type="submit" class="btn btn-primary">Actualizar</button>
-				</div>
+	<div class="super-wrapper">
+		<div class="clean-wrapper">
+
+			<div class="illustration">
+				<h1><i class="fa fa-gears"></i> Detalles incidencia</h1>
 			</div>
-			</form>
-			
+			<div class="row">
+				<div class="col-md-3">
+					<p>Incidencia número: <span class="btn btn-secondary" th:text="${incidencia.id}">12</span></p>
+					<p>Estado: <span class="btn btn-warning" th:text="${incidencia.status}">ABIERTA</span></p>
+					<p>Localización: <span th:text="${incidencia.location}">43.6735, 58.2452</span></p>
+					<p  th:if="${incidencia.expiration != null }">Fecha de caducidad: <span th:text="${incidencia.expiration}">ninguna</span>.</p>
+					<p>Etiquetas:</p>
+					<ul>
+						<li th:each="label : ${incidencia.labels}"><span th:text="${label}">gotera</span></li>
+					</ul>
+				</div>
+				<div class="col-md-5">
+                    <h2>Nombre: <span th:text="${incidencia.incidenceName}">Gotera en un techo</span></h2>
+                    <p th:text="${incidencia.description}">Descripción: Debido a una rotura de cañería</p>
+                    <hr />
+
+					<form class="form-horizontal" method="post" th:action="@{/incidencias/update/{id}(id=${incidencia.id})}">
+						<div class="form-group">
+							<label class="control-label col-sm-10" for="estado">Estado:</label>
+							<div class="col-sm-10">
+								<select id="estado" class="form-control" name="estado">
+									<option th:each="estado : ${estados}" th:value="${estado}"
+											th:text="${estado}"></option>
+								</select>
+							</div>
+						</div>
+						<br>
+						<div class="form-group">
+							<label class="control-label col-sm-2" for="comentario">Añadir comentario:</label>
+							<div class="col-sm-10">
+								<textarea rows="5" cols="70" class="form-control" id="comentario" name="comentario"></textarea>
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="col-sm-offset-2 col-sm-10">
+								<button type="submit" class="btn btn-primary">Actualizar</button>
+							</div>
+						</div>
+					</form>
+
+					<h4>Comentarios:</h4>
+					<ul>
+						<li th:each="comment: ${incidencia.comments}"><span th:text="${comment}">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ultrices ligula vel nisi ultricies
+                        gravida. Pellentesque id scelerisque diam, euismod dictum metus.</span>
+						</li>
+					</ul>
+					<hr />
+					<h5>Otros valores:</h5>
+					<ul>
+						<li th:each="value : ${incidencia.others}"><span th:text="${value}">casa muy vieja</span></li>
+					</ul>
+				</div>
+                <div class="col-md-3">
+                    <p>Mapa</p>
+
+                    <div id="map" style="width: 400px; height: 400px;"></div>
+                </div>
+			</div>
 		</div>
-		<p>Mapa</p>
+	</div><!-- fin super wrapper-->
 
+	<script th:inline="javascript">
+        /*<![CDATA[*/
+        "use strict";
 
-		<div id="map" style="width: 400px; height: 400px;"></div>
+        var mapa;
+        function iniciar(){
+            navigator.geolocation.getCurrentPosition(mostrar,errores);
+        }
+        function mostrar(posicion){
+            var cadena=[[${incidencia.location}]].split(",");
+            var latitud=parseFloat(cadena[0]);
+            var longitud=parseFloat(cadena[1]);
+            var ubicacion=new google.maps.LatLng(latitud, longitud);
+            var mapaOpciones ={
+                zoom:2,
+                center: ubicacion,
+                mapTypeId:  google.maps.MapTypeId.TERRAIN
+            };
 
-
-		<script th:inline="javascript">
-    /*<![CDATA[*/
-			"use strict";
-			
-			var mapa;
-    function iniciar(){
-        navigator.geolocation.getCurrentPosition(mostrar,errores);
-    }
-    function mostrar(posicion){
-    	var cadena=[[${incidencia.location}]].split(",");
-		var latitud=parseFloat(cadena[0]);
-		var longitud=parseFloat(cadena[1]);
-        var ubicacion=new google.maps.LatLng(latitud, longitud);
-        var mapaOpciones ={
-            zoom:2,
-            center: ubicacion,
-            mapTypeId:  google.maps.MapTypeId.TERRAIN
-        };
-    
-        mapa= new google.maps.Map(document.getElementById('map'), mapaOpciones);
-        var marcador = new google.maps.Marker({
-            position: ubicacion,
-            map:mapa
-        });
-        marcador.setMap(mapa);
-    }
-    function errores(error){
-        alert('Error: '+error.code+' '+error.message);
-    }
-    iniciar();
-     
-		/*]]>*/
+            mapa= new google.maps.Map(document.getElementById('map'), mapaOpciones);
+            var marcador = new google.maps.Marker({
+                position: ubicacion,
+                map:mapa
+            });
+            marcador.setMap(mapa);
+        }
+        function errores(error){
+            alert('Error: '+error.code+' '+error.message);
+        }
+        iniciar();
+        /*]]>*/
 	</script>
-		<script
-			src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCRXGSkiOeVhjBkV0XKN5pSC8KVzbUhfQo">
-        </script>
-	</div>
-</body>
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCRXGSkiOeVhjBkV0XKN5pSC8KVzbUhfQo"> </script>
 
+</body>
 </html>
